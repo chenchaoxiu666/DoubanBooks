@@ -11,8 +11,10 @@
 		BA5140F323540461006769B0 /* VMBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5140F223540461006769B0 /* VMBook.swift */; };
 		BA5140F523540697006769B0 /* BookFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5140F423540697006769B0 /* BookFactory.swift */; };
 		BA5140F723540911006769B0 /* BookRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5140F623540911006769B0 /* BookRepository.swift */; };
+		BA655E47235A8DCA00767920 /* AddCategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA655E46235A8DCA00767920 /* AddCategoryController.swift */; };
+		BA655E49235ABC5100767920 /* CategoryTimeList.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA655E48235ABC5100767920 /* CategoryTimeList.plist */; };
+		BA655E4D235AC02200767920 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA655E4C235AC02200767920 /* DateExtensions.swift */; };
 		BA6714DC2351507A0067D4F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6714DB2351507A0067D4F1 /* AppDelegate.swift */; };
-		BA6714DE2351507A0067D4F1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6714DD2351507A0067D4F1 /* ViewController.swift */; };
 		BA6714E12351507A0067D4F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA6714DF2351507A0067D4F1 /* Main.storyboard */; };
 		BA6714E42351507A0067D4F1 /* DoubanBooks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BA6714E22351507A0067D4F1 /* DoubanBooks.xcdatamodeld */; };
 		BA6714E62351507B0067D4F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA6714E52351507B0067D4F1 /* Assets.xcassets */; };
@@ -23,6 +25,9 @@
 		BA671512235181780067D4F1 /* DataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA671511235181780067D4F1 /* DataError.swift */; };
 		BA6C15DD2355CBCF00871637 /* Repositry.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6C15DC2355CBCF00871637 /* Repositry.swift */; };
 		BA6C15DF2355CC8800871637 /* DataViewModilDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6C15DE2355CC8800871637 /* DataViewModilDelegate.swift */; };
+		BA875A3623595594005BB2BD /* CategorisesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA875A3523595594005BB2BD /* CategorisesController.swift */; };
+		BA875A3823596042005BB2BD /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA875A3723596042005BB2BD /* CategoryCell.swift */; };
+		BA875A3A23596879005BB2BD /* AlertExtenslons.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA875A3923596879005BB2BD /* AlertExtenslons.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,9 +45,11 @@
 		BA5140F223540461006769B0 /* VMBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VMBook.swift; sourceTree = "<group>"; };
 		BA5140F423540697006769B0 /* BookFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookFactory.swift; sourceTree = "<group>"; };
 		BA5140F623540911006769B0 /* BookRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookRepository.swift; sourceTree = "<group>"; };
+		BA655E46235A8DCA00767920 /* AddCategoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryController.swift; sourceTree = "<group>"; };
+		BA655E48235ABC5100767920 /* CategoryTimeList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = CategoryTimeList.plist; sourceTree = "<group>"; };
+		BA655E4C235AC02200767920 /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		BA6714D82351507A0067D4F1 /* DoubanBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoubanBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA6714DB2351507A0067D4F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BA6714DD2351507A0067D4F1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BA6714E02351507A0067D4F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BA6714E32351507A0067D4F1 /* DoubanBooks.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DoubanBooks.xcdatamodel; sourceTree = "<group>"; };
 		BA6714E52351507B0067D4F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -61,6 +68,9 @@
 		BA671511235181780067D4F1 /* DataError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataError.swift; sourceTree = "<group>"; };
 		BA6C15DC2355CBCF00871637 /* Repositry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repositry.swift; sourceTree = "<group>"; };
 		BA6C15DE2355CC8800871637 /* DataViewModilDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewModilDelegate.swift; sourceTree = "<group>"; };
+		BA875A3523595594005BB2BD /* CategorisesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorisesController.swift; sourceTree = "<group>"; };
+		BA875A3723596042005BB2BD /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
+		BA875A3923596879005BB2BD /* AlertExtenslons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertExtenslons.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,12 +123,12 @@
 				BA67150A235169FF0067D4F1 /* Utils */,
 				BA671508235169ED0067D4F1 /* Views */,
 				BA6714DB2351507A0067D4F1 /* AppDelegate.swift */,
-				BA6714DD2351507A0067D4F1 /* ViewController.swift */,
 				BA6714DF2351507A0067D4F1 /* Main.storyboard */,
 				BA6714E52351507B0067D4F1 /* Assets.xcassets */,
 				BA6714E72351507B0067D4F1 /* LaunchScreen.storyboard */,
 				BA6714EA2351507B0067D4F1 /* Info.plist */,
 				BA6714E22351507A0067D4F1 /* DoubanBooks.xcdatamodeld */,
+				BA655E48235ABC5100767920 /* CategoryTimeList.plist */,
 			);
 			path = DoubanBooks;
 			sourceTree = "<group>";
@@ -135,6 +145,8 @@
 		BA671507235169DB0067D4F1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				BA875A3523595594005BB2BD /* CategorisesController.swift */,
+				BA655E46235A8DCA00767920 /* AddCategoryController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -142,6 +154,7 @@
 		BA671508235169ED0067D4F1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BA875A3723596042005BB2BD /* CategoryCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -160,6 +173,8 @@
 		BA67150A235169FF0067D4F1 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				BA655E4C235AC02200767920 /* DateExtensions.swift */,
+				BA875A3923596879005BB2BD /* AlertExtenslons.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -265,6 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA6714E92351507B0067D4F1 /* LaunchScreen.storyboard in Resources */,
+				BA655E49235ABC5100767920 /* CategoryTimeList.plist in Resources */,
 				BA6714E62351507B0067D4F1 /* Assets.xcassets in Resources */,
 				BA6714E12351507A0067D4F1 /* Main.storyboard in Resources */,
 			);
@@ -284,16 +300,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA875A3823596042005BB2BD /* CategoryCell.swift in Sources */,
 				BA671512235181780067D4F1 /* DataError.swift in Sources */,
+				BA655E47235A8DCA00767920 /* AddCategoryController.swift in Sources */,
 				BA5140F12353F532006769B0 /* CategotyFactory.swift in Sources */,
 				BA5140F723540911006769B0 /* BookRepository.swift in Sources */,
+				BA875A3623595594005BB2BD /* CategorisesController.swift in Sources */,
 				BA6C15DF2355CC8800871637 /* DataViewModilDelegate.swift in Sources */,
 				BA67150E23516B010067D4F1 /* VMCategory.swift in Sources */,
-				BA6714DE2351507A0067D4F1 /* ViewController.swift in Sources */,
+				BA875A3A23596879005BB2BD /* AlertExtenslons.swift in Sources */,
 				BA6714E42351507A0067D4F1 /* DoubanBooks.xcdatamodeld in Sources */,
 				BA5140F323540461006769B0 /* VMBook.swift in Sources */,
 				BA6C15DD2355CBCF00871637 /* Repositry.swift in Sources */,
 				BA67151023516BF40067D4F1 /* CategoryRepository.swift in Sources */,
+				BA655E4D235AC02200767920 /* DateExtensions.swift in Sources */,
 				BA5140F523540697006769B0 /* BookFactory.swift in Sources */,
 				BA6714DC2351507A0067D4F1 /* AppDelegate.swift in Sources */,
 			);

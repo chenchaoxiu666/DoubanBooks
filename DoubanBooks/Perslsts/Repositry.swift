@@ -28,7 +28,7 @@ class Repositry<T:DataViewModilDelegate> where T:NSObject{
         app.saveContext()
     }
     
-    func isEntityExists(_ cols:[String], keyword:String) throws ->Bool {
+    func isEntityExists(_ cols:[String], keyword:String) throws -> Bool {
         var format = ""
         var args = [String]()
         for col in cols {
@@ -54,17 +54,9 @@ class Repositry<T:DataViewModilDelegate> where T:NSObject{
     /// - keyword： 要搜索的关键字
     /// - result：视图模型对象集合
     func get(_ cols:[String]? = nil, keyword:String? = nil) throws -> [T] {
-        var format = ""
-        var args = [String]()
-        for col in cols! {
-            format += "\(col) lick[c] %@ || "
-            args.append("*\(keyword!)*")
-        }
-        format.removeLast(4)
-        
         var books = [T]()
         let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: T.entityName)
-        fetch.predicate = NSPredicate(format: format, argumentArray: args)
+        
         do {
             let result = try context.fetch(fetch)
             for item in result {
@@ -90,6 +82,38 @@ class Repositry<T:DataViewModilDelegate> where T:NSObject{
         for col in cols {
             format += "\(col) = %@ || "
             args.append(keyword)
+        }
+        format.removeLast(4)
+        
+        var books = [T]()
+        let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: T.entityName)
+        fetch.predicate = NSPredicate(format: format, argumentArray: args)
+        do {
+            let result = try context.fetch(fetch)
+            for item in result {
+                let vm = T()
+                vm.packageSelf(result: item as! NSFetchRequestResult)
+                books.append(vm)
+            }
+        }catch{
+            throw DataError.readCollectionError("读取集合数据失败！")
+        }
+        return books
+    }
+    
+    
+    /// 获取所有数据
+    ///
+    /// 根据传入的关键字查找数据, 精确搜索
+    /// - cols：要匹配的列
+    /// - keyword： 要搜索的关键字
+    /// - result：视图模型对象集合
+    func getbykey(_ cols:[String], keyword:String) throws -> [T] {
+        var format = ""
+        var args = [String]()
+        for col in cols {
+            format += "\(col) lick[c] %@ || "
+            args.append("*\(keyword)*")
         }
         format.removeLast(4)
         

@@ -52,6 +52,8 @@ final class BookFactory {
         return nil
     }
     
+    
+
     func isBookExists(book: VMBook) throws -> Bool {
         var match10 = false
         var match13 = false
