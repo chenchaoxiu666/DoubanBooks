@@ -8,6 +8,7 @@
 
 import UIKit
 let imgDir = "/Documents/"
+let notiCategory = "AddCategoryController.notiCategory"
 class AddCategoryController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     @IBOutlet weak var imgCover: UIImageView!
     @IBOutlet weak var textName: UITextField!
@@ -63,11 +64,9 @@ class AddCategoryController: UIViewController, UIImagePickerControllerDelegate, 
             return
         }
         saveImage(imag: seletedImage!, fileName: category.image!)
-        //TODO: 2. 添加类别编辑时间plist
-        //TODO: 3. 使用Notification通知列表更新
-      
-        
-        
+        CategotyFactory.updateEditTime(id: category.id)
+        /// NotificationCenter：通知中心,default: 整个应用默认的通知中心
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: notiCategory), object: nil, userInfo: ["name":category.name!])
     }
     
     

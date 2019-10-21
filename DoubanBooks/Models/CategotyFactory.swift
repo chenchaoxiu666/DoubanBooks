@@ -77,7 +77,7 @@ final class CategotyFactory {
     ///增
     func addCategory(cattegory: VMCategoty) -> (Bool ,String?) {
         do {
-            if try repository.isEntityExists([cattegory.name!], keyword: cattegory.name!){
+            if try repository.isEntityExists([VMCategoty.colName], keyword: cattegory.name!){
                 return (false , "同样的类别已经存在")
             }
             try repository.insert(vm: cattegory)
@@ -101,14 +101,14 @@ final class CategotyFactory {
     }
     private static let plistName = "CategoryTimeList"
     static func updateEditTime(id:UUID){
-        let path = Bundle.main.path(forResource: plistName, ofType: "plist")                          // 文件名，文件类型
+        let path = Bundle.main.path(forResource: plistName, ofType: "plist")                          // forResource: 文件名，ofType: 文件类型
         let dic = NSMutableDictionary(contentsOfFile: path!)
         dic?.setObject(Date.dateNowAsString(pattern: "yyyy/MM/dd HH:mm"), forKey: id.uuidString as NSCopying)
         dic?.write(toFile: path!, atomically: true)
     }
     
     static func getEditTimeFromPlist(id:UUID) -> String {
-        let path = Bundle.main.path(forResource: plistName, ofType: "plist")                          // 文件名，文件类型
+        let path = Bundle.main.path(forResource: plistName, ofType: "plist")                          // forResource: 文件名，ofType: 文件类型
         let dic = NSMutableDictionary(contentsOfFile: path!)
         if let time = dic?[id.uuidString] as? String{
             return time
@@ -117,7 +117,7 @@ final class CategotyFactory {
     }
     
     static func removeEditTime(id:UUID){
-        let path = Bundle.main.path(forResource: plistName, ofType: "plist")                          // 文件名，文件类型
+        let path = Bundle.main.path(forResource: plistName, ofType: "plist")                          // forResource：文件名，ofType:文件类型
         let dic = NSMutableDictionary(contentsOfFile: path!)
         dic?.removeObject(forKey: id.uuidString)
         dic?.write(toFile: path!, atomically: true)

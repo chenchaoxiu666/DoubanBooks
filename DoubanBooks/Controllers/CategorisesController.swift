@@ -26,10 +26,34 @@ class CategorisesController: UICollectionViewController {
         }catch{
             categories = [VMCategoty]()
         }
+        /// selector：要做什么
+        NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: NSNotification.Name(rawValue: notiCategory), object: nil)
         
     }
+    /// 接受数据
+    @objc func refresh(noti: Notification){
+        //刷新
+        ///使用键来获取值
+        let name = noti.userInfo!["name"] as! String
+        do{
+            categories?.removeAll()
+            categories?.append(contentsOf: try factory.getAllCategories())
+            UIAlertController.showALertAndDismiss("\(name)添加成功！", in: self, completion: {
+                self.navigationController?.popViewController(animated: true)
+                self.collectionView.reloadData()
+                })
+
+        }catch DataError.readCollectionError(let info){
+            categories = [VMCategoty]()
+            UIAlertController.showALertAndDismiss(info, in: self)
+        }catch{
+            categories = [VMCategoty]()
+        }
+    }
     
-   
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
 
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -49,7 +73,8 @@ class CategorisesController: UICollectionViewController {
         cell.lblName.text = category.name!
         cell.lblCount.text = String(factory.getBooksCountOfCategory(category: category.id)!)
         // TODO: 图库文件保存到沙盒，取文件地址
-//        cell.imgCover.image = UIImage(contentsOfFile: <#T##String#>)
+        cell.imgCover.image = UIImage(contentsOfFile: NSHomeDirectory().appending(imgDir).appending(category.image!))
+        cell.lblEditTime.text = CategotyFactory.getEditTimeFromPlist(id: category.id)
         cell.btnDelete.isHidden = true // TODO:随普通模式和删除模式切换可见
         return cell
     }
