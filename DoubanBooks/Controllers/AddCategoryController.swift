@@ -53,8 +53,11 @@ class AddCategoryController: UIViewController, UIImagePickerControllerDelegate, 
         //TODO: 1.检查数据完整性
         if name == nil || name!.count == 0 {
             UIAlertController.showALertAndDismiss("类别名称不能为空", in: self)
+            return
         }
-        
+        if seletedImage == nil{
+            seletedImage = UIImage(named: "click")
+        }
         let category = VMCategoty()
         category.name = name
         category.image = category.id.uuidString + ".jpg"

@@ -11,6 +11,7 @@
 		BA5140F323540461006769B0 /* VMBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5140F223540461006769B0 /* VMBook.swift */; };
 		BA5140F523540697006769B0 /* BookFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5140F423540697006769B0 /* BookFactory.swift */; };
 		BA5140F723540911006769B0 /* BookRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5140F623540911006769B0 /* BookRepository.swift */; };
+		BA598046235EF0960068E1CA /* BooksController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA598045235EF0960068E1CA /* BooksController.swift */; };
 		BA655E47235A8DCA00767920 /* AddCategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA655E46235A8DCA00767920 /* AddCategoryController.swift */; };
 		BA655E49235ABC5100767920 /* CategoryTimeList.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA655E48235ABC5100767920 /* CategoryTimeList.plist */; };
 		BA655E4D235AC02200767920 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA655E4C235AC02200767920 /* DateExtensions.swift */; };
@@ -45,6 +46,7 @@
 		BA5140F223540461006769B0 /* VMBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VMBook.swift; sourceTree = "<group>"; };
 		BA5140F423540697006769B0 /* BookFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookFactory.swift; sourceTree = "<group>"; };
 		BA5140F623540911006769B0 /* BookRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookRepository.swift; sourceTree = "<group>"; };
+		BA598045235EF0960068E1CA /* BooksController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksController.swift; sourceTree = "<group>"; };
 		BA655E46235A8DCA00767920 /* AddCategoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryController.swift; sourceTree = "<group>"; };
 		BA655E48235ABC5100767920 /* CategoryTimeList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = CategoryTimeList.plist; sourceTree = "<group>"; };
 		BA655E4C235AC02200767920 /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 			children = (
 				BA875A3523595594005BB2BD /* CategorisesController.swift */,
 				BA655E46235A8DCA00767920 /* AddCategoryController.swift */,
+				BA598045235EF0960068E1CA /* BooksController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				BA5140F12353F532006769B0 /* CategotyFactory.swift in Sources */,
 				BA5140F723540911006769B0 /* BookRepository.swift in Sources */,
 				BA875A3623595594005BB2BD /* CategorisesController.swift in Sources */,
+				BA598046235EF0960068E1CA /* BooksController.swift in Sources */,
 				BA6C15DF2355CC8800871637 /* DataViewModilDelegate.swift in Sources */,
 				BA67150E23516B010067D4F1 /* VMCategory.swift in Sources */,
 				BA875A3A23596879005BB2BD /* AlertExtenslons.swift in Sources */,

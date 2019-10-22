@@ -13,7 +13,7 @@ class CategorisesController: UICollectionViewController {
     var categories: [VMCategoty]?
     
     let addCategorySegu = "addCategorySegu"
-    
+    let BooksSegu = "BooksSegu"
     
     let factory = CategotyFactory.getInstance(UIApplication.shared.delegate as! AppDelegate)
     override func viewDidLoad() {
@@ -91,6 +91,7 @@ class CategorisesController: UICollectionViewController {
     /*
     // Uncomment this method to specify if the specified item should be selected
     override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        UIAlertController.showALertAndDismiss("\(indexPath.row)", in: self)
         return true
     }
     */
