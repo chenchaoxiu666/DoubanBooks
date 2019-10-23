@@ -14,7 +14,6 @@ class CategorisesController: UICollectionViewController {
     
     let addCategorySegu = "addCategorySegu"
     let BooksSegu = "BooksSegu"
-    
     let factory = CategotyFactory.getInstance(UIApplication.shared.delegate as! AppDelegate)
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +27,10 @@ class CategorisesController: UICollectionViewController {
         }
         /// selector：要做什么
         NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: NSNotification.Name(rawValue: notiCategory), object: nil)
-        
+        let lpTap = UILongPressGestureRecognizer(target: self, action: #selector(longPressSwitch(_:)))
+        collectionView.addGestureRecognizer(lpTap)
+        let tap = UITapGestureRecognizer(target: self, action:  #selector(tapToStopShakingOrBooksSegur(_:)))
+        collectionView.addGestureRecognizer(tap)
     }
     /// 接受数据
     @objc func refresh(noti: Notification){
@@ -54,8 +56,60 @@ class CategorisesController: UICollectionViewController {
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
-
-
+    
+    var longPressed = false {
+        // longPressed改变后刷新
+        didSet{
+            if oldValue != longPressed{
+                collectionView.reloadData()
+            }
+        }
+    }
+    var point :CGPoint?
+    /// 长按
+    @objc func longPressSwitch (_ lpTap: UILongPressGestureRecognizer ){
+        // 如果长按（在item上）就进入删除模式
+        //判断是否点在item上
+        point = lpTap.location(in: collectionView)
+        
+        if let p = point, let _ = collectionView.indexPathForItem(at: p){
+                longPressed = true
+        }
+        
+    }
+    
+    @objc func tapToStopShakingOrBooksSegur(_ tap: UITapGestureRecognizer){
+        // 1. 停止删除模式
+        // 2. 点击item的时候就执行books场景过度
+        // 识别当前的点
+        point = tap.location(in: collectionView)
+        if let p = point, collectionView.indexPathForItem(at: p) == nil {
+            longPressed = false
+        }
+        if let p = point , let index = collectionView .indexPathForItem(at: p) {
+            if !longPressed{
+                performSegue(withIdentifier: BooksSegu, sender: index.item)
+            }
+        }
+    }
+    
+    @objc func deleteCategory(_:Int){
+        
+        UIAlertController.showConfirm("确定删除？", in: self, confirm: {_ in
+            let index = self.collectionView.indexPathForItem(at: self.point!)
+            let category = self.categories![index!.item]
+            try! self.factory.removeCategory(category: category)
+            self.categories?.remove(at: index!.item)
+            let fileManager = FileManager.default
+            try? fileManager.removeItem(atPath: category.image!)
+             self.longPressed = false
+            self.collectionView.reloadData()
+        })
+        
+    }
+    
+    
+    
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
@@ -75,10 +129,28 @@ class CategorisesController: UICollectionViewController {
         // TODO: 图库文件保存到沙盒，取文件地址
         cell.imgCover.image = UIImage(contentsOfFile: NSHomeDirectory().appending(imgDir).appending(category.image!))
         cell.lblEditTime.text = CategotyFactory.getEditTimeFromPlist(id: category.id)
-        cell.btnDelete.isHidden = true // TODO:随普通模式和删除模式切换可见
+        // 添加按钮的点击事件
+        
+        // TODO 删除模式下抖动，非删除模式取消抖动
+        if longPressed{
+            //删除模式下抖动
+            let pos = collectionView.indexPathForItem(at: point!)?.item
+            if pos == indexPath.item{
+                 cell.btnDelete.isHidden = false
+            }
+            cell.btnDelete.addTarget(self, action: #selector(deleteCategory(_:)), for: .touchUpInside)
+           
+        }else{
+            //非删除模式取消抖动
+            // TODO:随普通模式和删除模式切换可见
+            cell.btnDelete.isHidden = true
+        }
         return cell
     }
-
+    
+    
+    
+    
     // MARK: UICollectionViewDelegate
 
     /*
@@ -110,5 +182,6 @@ class CategorisesController: UICollectionViewController {
     
     }
     */
+    
 
 }
