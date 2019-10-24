@@ -8,40 +8,57 @@
 
 import UIKit
 
-class BooksController: UITableViewController {
-
+class BooksController: UITableViewController ,EmptyViewDelegate{
+    var categories = VMCategoty()
+    var books: [VMBook]?
+    let bookcell = "bookcell"
+    
+     let factory = BookFactory.getInstance(UIApplication.shared.delegate as! AppDelegate)
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        do{
+            books = try factory.getBooksOf(category: categories.id)
+        }catch DataError.readCollectionError(let info){
+            books = [VMBook]()
+            UIAlertController.showALertAndDismiss(info, in: self, completion: {
+                self.navigationController?.popViewController(animated: true)
+            })
+        }catch{
+            books = [VMBook]()
+            UIAlertController.showALertAndDismiss(error.localizedDescription, in: self, completion: {
+                self.navigationController?.popViewController(animated: true)
+            })
+        }
+        tableView.setEmtpyTableViewDelegate(target: self)
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return books!.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: bookcell, for: indexPath) as! BookCell
+         let book = books![indexPath.row]
+        cell.lblBookName.text = book.title
+//        cell.lblName.text = book.authorIntro
+        cell.lblSynopsis.text = book.summary
+//        cell.imgCover.image = UIImage(contentsOfFile: NSHomeDirectory().appending(imgDir).appending(categories.image!))
+        cell.imgNameCover.image = UIImage(named: "ic_user")
         return cell
     }
-    */
-
+ 
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 130
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -86,5 +103,25 @@ class BooksController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    var isEmpty: Bool{
+        get{
+            if let data  = books {
+                return data.count == 0
+            }
+            return true
+        }
+    }
+    var imgEmpty:UIImageView?
+    func createEmptyView() -> UIView? {
+        if let empty = imgEmpty{
+            return empty
+        }
+        let w = UIScreen.main.bounds.width
+        let h = UIScreen.main.bounds.height
+        let batHeigHt = navigationController?.navigationBar.frame.height
+        let img = UIImageView(frame: CGRect(x: (w-139)/2, y: (h-128)/2 - (batHeigHt ?? 0), width:139, height: 128))
+        img.image = UIImage(named: "no_data")
+        img.contentMode = .scaleAspectFit
+        return img
+    }
 }

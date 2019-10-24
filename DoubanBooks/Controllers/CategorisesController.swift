@@ -15,6 +15,7 @@ class CategorisesController: UICollectionViewController {
     let addCategorySegu = "addCategorySegu"
     let BooksSegu = "BooksSegu"
     let factory = CategotyFactory.getInstance(UIApplication.shared.delegate as! AppDelegate)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         do{
@@ -93,16 +94,24 @@ class CategorisesController: UICollectionViewController {
         }
     }
     
-    @objc func deleteCategory(_:Int){
+    @objc func deleteCategory(_ :Int){
         
         UIAlertController.showConfirm("确定删除？", in: self, confirm: {_ in
             let index = self.collectionView.indexPathForItem(at: self.point!)
             let category = self.categories![index!.item]
-            try! self.factory.removeCategory(category: category)
-            self.categories?.remove(at: index!.item)
+           let (sueeccrr, error) =  self.factory.removeCategory(category: category)
+            if !sueeccrr{
+                UIAlertController.showALertAndDismiss(error!, in: self)
+            } else {
+                self.categories?.remove(at: index!.item)
+            }
             let fileManager = FileManager.default
-            try? fileManager.removeItem(atPath: category.image!)
-             self.longPressed = false
+            do{
+            try fileManager.removeItem(atPath: NSHomeDirectory().appending(imgDir).appending(category.image!))
+            }catch{
+                UIAlertController.showALertAndDismiss("删除失败", in: self)
+            }
+            self.longPressed = false
             self.collectionView.reloadData()
         })
         
@@ -136,8 +145,16 @@ class CategorisesController: UICollectionViewController {
             //删除模式下抖动
             let pos = collectionView.indexPathForItem(at: point!)?.item
             if pos == indexPath.item{
-                 cell.btnDelete.isHidden = false
+                cell.btnDelete.isHidden = false
+                let anim = CABasicAnimation(keyPath: "transform.rotation")
+                anim.toValue = -Double.pi / 64
+                anim.fromValue = Double.pi / 64
+                anim.duration = 0.15
+                anim.repeatCount = MAXFLOAT
+                anim.autoreverses = true
+                cell.layer.add(anim, forKey: "SpringboardShake")
             }
+            
             cell.btnDelete.addTarget(self, action: #selector(deleteCategory(_:)), for: .touchUpInside)
            
         }else{
@@ -148,7 +165,17 @@ class CategorisesController: UICollectionViewController {
         return cell
     }
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == BooksSegu {
+            let destinatons = segue.destination as! BooksController
+            if sender is Int {
+                let categories = self.categories![sender as! Int]
+                destinatons.categories = categories
+            }
+        }
+        
+        
+    }
     
     
     // MARK: UICollectionViewDelegate

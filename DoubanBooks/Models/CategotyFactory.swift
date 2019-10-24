@@ -57,7 +57,7 @@ final class CategotyFactory {
         }
     }
     /// 删
-    func removeCategory(category:VMCategoty) throws -> (Bool,String?) {
+    func removeCategory(category:VMCategoty) -> (Bool,String?) {
         if let count =  getBooksCountOfCategory(category: category.id){
             if count > 0{
                 return (false ,"存在该类图书，不能删除")
