@@ -7,7 +7,31 @@
 //
 import CoreData
 import Foundation
-class VMBook:NSObject,DataViewModilDelegate {
+class VMBook:NSObject,DataViewModilDelegate,JSONable {
+    required init(json: Dictionary<String, Any>) {
+        id = UUID()
+        categoryId = UUID()
+        title = json[json_books_title] as? String       //加?防止没有数据
+        pages = Int32(json[json_books_pages] as? String ?? "0")
+        authorIntro = json[json_books_authorIntro] as? String
+        image = json[json_books_image] as? String
+        isbn10 = json[json_books_isbn10] as? String ?? ""
+        isbn13 = json[json_books_isbn13] as? String ?? ""
+        price = json[json_books_price] as? String
+        pubdate = json[json_books_pubdate] as? String
+        publisher = json[json_books_publisher] as? String
+        summary = json[json_books_summary] as? String
+        binding = json[json_books_binding] as? String
+        if json[json_books_author] is NSArray {
+            let authors = json[json_books_author] as! NSArray
+            for a in authors {
+               author?.append(a as! String + ",")
+            }
+            author?.removeLast()
+        }
+    }
+    
+    
      var author: String?
      var authorIntro: String?
      var categoryId: UUID

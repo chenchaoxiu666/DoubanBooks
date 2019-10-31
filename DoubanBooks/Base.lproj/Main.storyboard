@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lUd-gI-BWo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XHS-3Y-6wT">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -98,7 +98,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="chn-rb-7rJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1797.1014492753625" y="137.94642857142856"/>
+            <point key="canvasLocation" x="2707.2463768115945" y="137.94642857142856"/>
         </scene>
         <!--Books Controller-->
         <scene sceneID="q5C-Cr-FKl">
@@ -232,7 +232,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hIP-gm-uco" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1789.8550724637682" y="857.8125"/>
+            <point key="canvasLocation" x="2707" y="858"/>
         </scene>
         <!--Add Category Controller-->
         <scene sceneID="wTc-cX-bSa">
@@ -295,12 +295,97 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CyZ-2f-S8z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2652.1739130434785" y="137.94642857142856"/>
+            <point key="canvasLocation" x="3562.3188405797105" y="137.94642857142856"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--豆瓣图书-->
+        <scene sceneID="Jrn-Rv-Smc">
+            <objects>
+                <collectionViewController id="1FH-OG-hai" customClass="FindControllerController" customModule="DoubanBooks" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="dWv-Qi-FBN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tOb-d5-qBH">
+                            <size key="itemSize" width="100" height="140"/>
+                            <size key="headerReferenceSize" width="0.0" height="56"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="bookItemCell" id="3r3-nW-9QG" customClass="FindViewCell" customModule="DoubanBooks" customModuleProvider="target">
+                                <rect key="frame" x="10" y="66" width="100" height="140"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="100" height="140"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="click" translatesAutoresizingMaskIntoConstraints="NO" id="dwG-Tt-tKI">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lLV-Tc-Vgu">
+                                            <rect key="frame" x="1" y="101" width="98" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_user" translatesAutoresizingMaskIntoConstraints="NO" id="6SB-xZ-WhE">
+                                            <rect key="frame" x="1" y="122" width="15" height="15"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star_off" translatesAutoresizingMaskIntoConstraints="NO" id="iOk-ya-d3f">
+                                            <rect key="frame" x="80" y="120" width="18" height="18"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E4d-4Q-lIf">
+                                            <rect key="frame" x="18" y="125" width="62" height="10"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </view>
+                                <connections>
+                                    <outlet property="imgCover" destination="dwG-Tt-tKI" id="zqB-gL-0qh"/>
+                                    <outlet property="imgStar" destination="iOk-ya-d3f" id="Vrp-mh-ehy"/>
+                                    <outlet property="imgUser" destination="6SB-xZ-WhE" id="bgD-5E-fQX"/>
+                                    <outlet property="lblName" destination="lLV-Tc-Vgu" id="jJy-yq-1Wt"/>
+                                    <outlet property="lblUserName" destination="E4d-4Q-lIf" id="wB8-2G-wQi"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="serachHeader" id="mM7-tn-PiL" customClass="HeaderReusableView" customModule="DoubanBooks" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BOy-VN-eva">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </searchBar>
+                            </subviews>
+                            <connections>
+                                <outlet property="seaechBar" destination="BOy-VN-eva" id="ias-kr-oon"/>
+                            </connections>
+                        </collectionReusableView>
+                        <connections>
+                            <outlet property="dataSource" destination="1FH-OG-hai" id="VqK-RJ-1dX"/>
+                            <outlet property="delegate" destination="1FH-OG-hai" id="B4o-og-RoM"/>
+                        </connections>
+                    </collectionView>
+                    <tabBarItem key="tabBarItem" title="豆瓣图书" id="nMg-UZ-c7k"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kyB-IV-JZQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1789.8550724637682" y="-563.16964285714278"/>
+        </scene>
+        <!--我的-->
         <scene sceneID="I5S-cO-clC">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lUd-gI-BWo" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="我的" id="VYj-VO-wa6"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZMW-Nj-fuc">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -313,6 +398,24 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ROi-Xb-OVL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1797.1014492753625" y="137.94642857142856"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="ysP-y0-14d">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="XHS-3Y-6wT" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BLg-ju-pPK">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="lUd-gI-BWo" kind="relationship" relationship="viewControllers" id="bOz-s5-O46"/>
+                        <segue destination="1FH-OG-hai" kind="relationship" relationship="viewControllers" id="7i1-ni-cLp"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7bn-Si-OWX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="886.95652173913049" y="137.94642857142856"/>
         </scene>
     </scenes>
@@ -320,5 +423,6 @@
         <image name="click" width="760" height="760"/>
         <image name="down" width="48" height="48"/>
         <image name="ic_user" width="32" height="32"/>
+        <image name="star_off" width="27" height="27"/>
     </resources>
 </document>

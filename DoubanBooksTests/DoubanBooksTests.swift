@@ -5,7 +5,7 @@
 //  Created by 2017yd on 2019/10/12.
 //  Copyright © 2019年 2017yd. All rights reserved.
 //
-
+import Alamofire
 import XCTest
 @testable import DoubanBooks
 
@@ -14,21 +14,34 @@ class DoubanBooksTests: XCTestCase {
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
+    func testGet(){
+        Alamofire.request(BooksJson.getSearchUrl(keyword: "ios", page: 0))
+            .validate(contentType: ["application/json"])
+            .responseJSON{ response in
+            switch response.result {
+            case .success:
+                if let json = response.result.value{
+                    let books = BookConverter.getBooks(json: json)
+                    XCTAssertEqual(books.count, 20)
+                    XCTAssertEqual(books[0].title, "Effective Objective-C 2.0")
+                    print(json)
+                }
+            case .failure(let error):
+                print(error)
+                
+            }
+        }
+        }
+    
 
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
     func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
 
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
     }
-
+    
 }
+
+

@@ -12,3 +12,8 @@ protocol EmptyViewDelegate {
     var isEmpty :Bool{get}
     func createEmptyView() ->UIView?
 }
+extension EmptyViewDelegate{
+    func createEmptyView() ->UIView?{
+        return nil
+    }
+}

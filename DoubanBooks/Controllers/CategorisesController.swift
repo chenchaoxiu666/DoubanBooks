@@ -9,12 +9,37 @@ import UIKit
 
 private let reuseIdentifier = "categoryCell"
 
-class CategorisesController: UICollectionViewController {
+class CategorisesController: UICollectionViewController ,EmptyViewDelegate{
+    
+    
     var categories: [VMCategoty]?
     
     let addCategorySegu = "addCategorySegu"
     let BooksSegu = "BooksSegu"
     let factory = CategotyFactory.getInstance(UIApplication.shared.delegate as! AppDelegate)
+    
+    var isEmpty: Bool{
+        get{
+            if let data  = categories {
+                return data.count == 0
+            }
+            return true
+        }
+    }
+    var imgEmpty:UIImageView?
+    func createEmptyView() -> UIView? {
+        if let empty = imgEmpty{
+            return empty
+        }
+        let w = UIScreen.main.bounds.width
+        let h = UIScreen.main.bounds.height
+        let batHeigHt = navigationController?.navigationBar.frame.height
+        let img = UIImageView(frame: CGRect(x: (w-139)/2, y: (h-128)/2 - (batHeigHt ?? 0), width:139, height: 128))
+        img.image = UIImage(named: "no_data")
+        img.contentMode = .scaleAspectFit
+        return img
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +57,7 @@ class CategorisesController: UICollectionViewController {
         collectionView.addGestureRecognizer(lpTap)
         let tap = UITapGestureRecognizer(target: self, action:  #selector(tapToStopShakingOrBooksSegur(_:)))
         collectionView.addGestureRecognizer(tap)
+        collectionView.setEmtpyCollectionViewDelegate(target: self)
     }
     /// 接受数据
     @objc func refresh(noti: Notification){

@@ -14,6 +14,7 @@ class BooksController: UITableViewController ,EmptyViewDelegate{
     let bookcell = "bookcell"
     
      let factory = BookFactory.getInstance(UIApplication.shared.delegate as! AppDelegate)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         do{
