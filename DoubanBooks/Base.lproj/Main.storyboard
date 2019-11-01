@@ -326,7 +326,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lLV-Tc-Vgu">
                                             <rect key="frame" x="1" y="101" width="98" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -341,7 +341,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E4d-4Q-lIf">
                                             <rect key="frame" x="18" y="125" width="62" height="10"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="6"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -349,8 +349,7 @@
                                 </view>
                                 <connections>
                                     <outlet property="imgCover" destination="dwG-Tt-tKI" id="zqB-gL-0qh"/>
-                                    <outlet property="imgStar" destination="iOk-ya-d3f" id="Vrp-mh-ehy"/>
-                                    <outlet property="imgUser" destination="6SB-xZ-WhE" id="bgD-5E-fQX"/>
+                                    <outlet property="imgStar" destination="iOk-ya-d3f" id="3qb-A5-xDQ"/>
                                     <outlet property="lblName" destination="lLV-Tc-Vgu" id="jJy-yq-1Wt"/>
                                     <outlet property="lblUserName" destination="E4d-4Q-lIf" id="wB8-2G-wQi"/>
                                 </connections>
@@ -406,6 +405,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="XHS-3Y-6wT" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BLg-ju-pPK">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>

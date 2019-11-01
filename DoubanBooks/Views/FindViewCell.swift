@@ -12,6 +12,6 @@ class FindViewCell: UICollectionViewCell {
     @IBOutlet weak var imgCover: UIImageView!
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblUserName: UILabel!
-    @IBOutlet weak var imgUser: UIImageView!
     @IBOutlet weak var imgStar: UIImageView!
+    
 }
