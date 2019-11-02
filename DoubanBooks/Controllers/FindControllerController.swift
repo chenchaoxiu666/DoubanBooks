@@ -18,13 +18,29 @@ class FindControllerController: UICollectionViewController , EmptyViewDelegate, 
     var isLoading = false
     var currentPage = 0
     var kw = ""
+    var star = "star_off"
+    let bookdataSuge = "bookdataSuge"
+    var point :CGPoint?
+    
     let factory = BookFactory.getInstance(UIApplication.shared.delegate as! AppDelegate)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.setEmtpyCollectionViewDelegate(target: self)
+        let tap = UITapGestureRecognizer(target: self, action:  #selector(tapToStopShakingOrBooksSegur(_:)))
+        collectionView.addGestureRecognizer(tap)
     }
 
+    @objc func tapToStopShakingOrBooksSegur(_ tap: UITapGestureRecognizer){
+        // 1. 停止删除模式
+        // 2. 点击item的时候就执行books场景过度
+        // 识别当前的点
+        point = tap.location(in: collectionView)
+        if let p = point , let index = collectionView .indexPathForItem(at: p) {
+            performSegue(withIdentifier: bookdataSuge, sender: index.item)
+        }
+    }
+    
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let hader = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "serachHeader", for: indexPath) as! HeaderReusableView
@@ -68,10 +84,11 @@ class FindControllerController: UICollectionViewController , EmptyViewDelegate, 
                 cell.imgCover.image = imag
             }
         }
-        cell.imgStar.image = UIImage(named: "star_off")
+        star = "star_off"
         if (try? factory.isBookExists(book: book)) ?? false{
-            cell.imgStar.image = UIImage(named: "star_on")
+             star = "star_on"
         }
+        cell.imgStar.image = UIImage(named: star)
         
         if !isLoading && indexPath.item == (books?.count)! - 1 {
             isLoading = true
@@ -80,11 +97,15 @@ class FindControllerController: UICollectionViewController , EmptyViewDelegate, 
         }
         return cell
     }
+    
+    
+  
 
     
     func loadBooks(kw: String){
         Alamofire.request(BooksJson.getSearchUrl(keyword: kw, page: currentPage))
-        .validate(contentType: ["application/json"])
+            .validate(statusCode: 200..<300)                    
+            .validate(contentType: ["application/json"])
             .responseJSON { response in
                 switch response.result {
                 case .success:
@@ -166,13 +187,18 @@ class FindControllerController: UICollectionViewController , EmptyViewDelegate, 
     }
     
     
-    /*
+    
      // MARK: - Navigation
      
      // In a storyboard-based application, you will often want to do a little preparation before navigation
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using [segue destinationViewController].
-     // Pass the selected object to the new view controller.
+        if segue.identifier == bookdataSuge {
+            let destinatons = segue.destination as! BookDateController
+            if sender is Int {
+                let book = self.books![sender as! Int]
+                destinatons.book = book
+            }
+        }
      }
-     */
+ 
 }

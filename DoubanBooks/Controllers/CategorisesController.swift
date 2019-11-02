@@ -80,6 +80,11 @@ class CategorisesController: UICollectionViewController ,EmptyViewDelegate{
         }
     }
     
+    func got(){
+        
+    }
+    
+    
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
@@ -188,7 +193,26 @@ class CategorisesController: UICollectionViewController ,EmptyViewDelegate{
             // TODO:随普通模式和删除模式切换可见
             cell.btnDelete.isHidden = true
         }
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(gotoFindTab(_:)))
+        cell.imgInfo.isUserInteractionEnabled = true
+        cell.imgInfo.addGestureRecognizer(tap)
+        cell.imgInfo.tag = indexPath.item
+        
         return cell
+    }
+    
+    
+    // TODO: 场景跳转
+    @objc func gotoFindTab(_ tap: UITapGestureRecognizer) {
+        if let pos = tap.view?.tag {
+            let findController = tabBarController?.viewControllers![1] as! FindControllerController
+            findController.category = categories![pos]
+            findController.kw = categories![pos].name!
+            findController.loadBooks(kw: categories![pos].name!)
+            tabBarController?.selectedIndex = 1
+            tabBarController?.selectedViewController?.tabBarItem.badgeValue = categories![pos].name
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -13,6 +13,7 @@
 		BA3E6B052361407800AD878D /* EmptyViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3E6B042361407800AD878D /* EmptyViewDelegate.swift */; };
 		BA3E6B072361447D00AD878D /* ScrollViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3E6B062361447D00AD878D /* ScrollViewExtension.swift */; };
 		BA3E6B09236148B100AD878D /* FuncTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3E6B08236148B100AD878D /* FuncTools.swift */; };
+		BA487956236D34770099078C /* BookDateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA487955236D34770099078C /* BookDateController.swift */; };
 		BA5140F12353F532006769B0 /* CategotyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5140F02353F532006769B0 /* CategotyFactory.swift */; };
 		BA5140F323540461006769B0 /* VMBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5140F223540461006769B0 /* VMBook.swift */; };
 		BA5140F523540697006769B0 /* BookFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5140F423540697006769B0 /* BookFactory.swift */; };
@@ -65,6 +66,7 @@
 		BA3E6B042361407800AD878D /* EmptyViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyViewDelegate.swift; sourceTree = "<group>"; };
 		BA3E6B062361447D00AD878D /* ScrollViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewExtension.swift; sourceTree = "<group>"; };
 		BA3E6B08236148B100AD878D /* FuncTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuncTools.swift; sourceTree = "<group>"; };
+		BA487955236D34770099078C /* BookDateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDateController.swift; sourceTree = "<group>"; };
 		BA5140F02353F532006769B0 /* CategotyFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategotyFactory.swift; sourceTree = "<group>"; };
 		BA5140F223540461006769B0 /* VMBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VMBook.swift; sourceTree = "<group>"; };
 		BA5140F423540697006769B0 /* BookFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookFactory.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 				BA655E46235A8DCA00767920 /* AddCategoryController.swift */,
 				BA598045235EF0960068E1CA /* BooksController.swift */,
 				BA569166236A6B610027C7B3 /* FindControllerController.swift */,
+				BA487955236D34770099078C /* BookDateController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -440,6 +443,7 @@
 				BA671512235181780067D4F1 /* DataError.swift in Sources */,
 				BA10DC80236975BF003A6B94 /* BookConverter.swift in Sources */,
 				BA655E47235A8DCA00767920 /* AddCategoryController.swift in Sources */,
+				BA487956236D34770099078C /* BookDateController.swift in Sources */,
 				BA56916B236A8FDB0027C7B3 /* FindViewCell.swift in Sources */,
 				BA5140F12353F532006769B0 /* CategotyFactory.swift in Sources */,
 				BA5140F723540911006769B0 /* BookRepository.swift in Sources */,
