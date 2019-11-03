@@ -80,11 +80,6 @@ class CategorisesController: UICollectionViewController ,EmptyViewDelegate{
         }
     }
     
-    func got(){
-        
-    }
-    
-    
     deinit {
         NotificationCenter.default.removeObserver(self)
     }

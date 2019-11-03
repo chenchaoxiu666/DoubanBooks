@@ -9,6 +9,7 @@
 import Foundation
 let json_tag_count = "count"
 let json_tag_total = "total"
+let json_tag_start = "start"
 let json_tag_books = "books"
 let json_books_authorIntro = "author_intro"
 let json_books_author = "author"
