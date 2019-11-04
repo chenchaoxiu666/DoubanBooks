@@ -203,7 +203,7 @@ class CategorisesController: UICollectionViewController ,EmptyViewDelegate{
         if let pos = tap.view?.tag {
             let findController = tabBarController?.viewControllers![1] as! FindControllerController
             findController.category = categories![pos]
-            findController.kw = categories![pos].name!
+            findController.kws = categories![pos].name!
             findController.loadBooks(kw: categories![pos].name!)
             tabBarController?.selectedIndex = 1
             tabBarController?.selectedViewController?.tabBarItem.badgeValue = categories![pos].name

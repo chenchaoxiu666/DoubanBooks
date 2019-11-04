@@ -8,10 +8,10 @@
 
 import Foundation
 class BookConverter {
-    static func getBooks(json: Any) -> [VMBook] {
+    static func getBooks(json: Any) -> [VMBook]? {
         var books:[VMBook]?
         let dic = json as! Dictionary<String,Any>
-        if dic[json_tag_count] as! Int > 0{
+        if dic[json_tag_count] as! Int > 0 {
             books = JSONConverter<VMBook>.getArray(json: json, key: json_tag_books)
         }
         return books!

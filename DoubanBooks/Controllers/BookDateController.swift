@@ -9,7 +9,9 @@
 import UIKit
 import AlamofireImage
 import Alamofire
-class BookDateController: UIViewController {
+
+let navigation = "BookDateController.navigation"
+class BookDateController: UIViewController, UINavigationControllerDelegate{
     @IBOutlet weak var imgCover: UIImageView!
     @IBOutlet weak var lblUserName: UILabel!
     @IBOutlet weak var lblPublisher: UILabel!
@@ -17,7 +19,7 @@ class BookDateController: UIViewController {
     @IBOutlet weak var lblPrice: UILabel!
     @IBOutlet weak var angTitle: UINavigationItem!
     @IBOutlet var itemCollection: UIBarButtonItem!
-    @IBOutlet var textAuthorIntro: UITextView!
+    @IBOutlet var textAuthor: UITextView!
     @IBOutlet var textSummary: UITextView!
     let factory = BookFactory.getInstance(UIApplication.shared.delegate as! AppDelegate)
     var book = VMBook()
@@ -35,7 +37,7 @@ class BookDateController: UIViewController {
         self.lblPublisher.text = book.publisher
         self.lblPubdate.text = book.pubdate
         self.lblPrice.text = book.price
-//        self.textAuthorIntro.text = book.authorIntro
+        self.textAuthor.text = book.authorIntro
         self.textSummary.text = book.summary
         angTitle.title = book.title
         if (try? factory.isBookExists(book: book)) ?? false{
@@ -45,19 +47,31 @@ class BookDateController: UIViewController {
     }
     
     @IBAction func completeAction(_ sender: Any) {
-        
+ 
+//        if star == "star_no" {
+//           if (try?factory.isBookExists(book: book)) ?? false{
+//                try? factory.removeBook(id: book.id)
+//            }
+//        } else {
+//            if (try?factory.isBookExists(book: book)) ?? false{
+//                try? factory.addBook(cattegory: book)
+//            }
+//        }
+//        NotificationCenter.default.post(name: NSNotification.Name(rawValue: navigation), object: nil, userInfo: ["title":book.title])
     }
+    
+    
+    
     
     @IBAction func collectionAction(_ sender: Any) {
         if star == "star_no" {
             itemCollection.image = UIImage(named: "star_yes")
             star = "star_yes"
-        }
-        if star == "star_yes" {
+        } else {
             itemCollection.image = UIImage(named: "star_no")
             star = "star_no"
         }
-        
+    
     }
     /*
     // MARK: - Navigation

@@ -12,12 +12,12 @@ import AlamofireImage
 
 private let reuseIdentifier = "bookItemCell"
 
-class FindControllerController: UICollectionViewController , EmptyViewDelegate, UISearchBarDelegate{
+class FindControllerController: UICollectionViewController , EmptyViewDelegate, UISearchBarDelegate, UINavigationControllerDelegate{
     var category: VMCategoty?
     var books: [VMBook]?
     var isLoading = false
     var currentPage = 0
-    var kw = ""
+    var kws = ""
     var star = "star_off"
     let bookdataSuge = "bookdataSuge"
     var point :CGPoint?
@@ -29,8 +29,23 @@ class FindControllerController: UICollectionViewController , EmptyViewDelegate, 
         collectionView.setEmtpyCollectionViewDelegate(target: self)
         let tap = UITapGestureRecognizer(target: self, action:  #selector(tapToStopShakingOrBooksSegur(_:)))
         collectionView.addGestureRecognizer(tap)
+        NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: NSNotification.Name(rawValue: navigation), object: nil)
     }
 
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    @objc func refresh(noti: Notification){
+        isLoading = false
+        currentPage = 0
+        books?.removeAll()
+        loadBooks(kw: kws)
+        UIAlertController.showALertAndDismiss("添加成功！", in: self, completion: {
+            self.navigationController?.popViewController(animated: true)
+            self.collectionView.reloadData()
+        })
+    }
+    
     @objc func tapToStopShakingOrBooksSegur(_ tap: UITapGestureRecognizer){
         // 1. 停止删除模式
         // 2. 点击item的时候就执行books场景过度
@@ -52,12 +67,12 @@ class FindControllerController: UICollectionViewController , EmptyViewDelegate, 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let kw = searchBar.text {
             tabBarController?.viewControllers![1].tabBarItem.badgeValue = kw
+            isLoading = false
+            currentPage = 0
+            kws = searchBar.text!
+            books?.removeAll()
+            loadBooks(kw: searchBar.text!)
         }
-        isLoading = false
-        currentPage = 0
-        kw = searchBar.text!
-        books?.removeAll()
-        loadBooks(kw: searchBar.text!)
     }
     // MARK: UICollectionViewDataSource
 
@@ -79,22 +94,22 @@ class FindControllerController: UICollectionViewController , EmptyViewDelegate, 
         let book = books![indexPath.item]
         cell.lblName.text = book.title
         cell.lblUserName.text = book.author
+        if !isLoading && indexPath.item == (books?.count)! - 1 {
+            isLoading = true
+            currentPage += 1
+            loadBooks(kw: kws)
+        }
         Alamofire.request(book.image!).responseImage{ response in
             if let imag = response.result.value {
                 cell.imgCover.image = imag
             }
         }
-        star = "star_off"
         if (try? factory.isBookExists(book: book)) ?? false{
              star = "star_on"
         }
         cell.imgStar.image = UIImage(named: star)
         
-        if !isLoading && indexPath.item == (books?.count)! - 1 {
-            isLoading = true
-            currentPage += 1
-            loadBooks(kw: kw)
-        }
+       
         return cell
     }
     
@@ -103,6 +118,10 @@ class FindControllerController: UICollectionViewController , EmptyViewDelegate, 
 
     
     func loadBooks(kw: String){
+        if kw.count == 0 {
+            return
+        }
+        kws = kw
         Alamofire.request(BooksJson.getSearchUrl(keyword: kw, page: currentPage))
             .validate(statusCode: 200..<300)                    
             .validate(contentType: ["application/json"])
@@ -111,13 +130,13 @@ class FindControllerController: UICollectionViewController , EmptyViewDelegate, 
                 case .success:
                     if let json = response.result.value {
                         let books = BookConverter.getBooks(json: json)
-                        if books == nil || books.count == 0 {
+                        if books == nil || books!.count == 0 {
                             self.isLoading = true
                         } else {
                             if self.books == nil {
                                 self.books = books
                             } else {
-                                self.books! += books
+                                self.books! += books!
                             }
                             self.collectionView.reloadData()
                             self.isLoading = false
@@ -197,6 +216,7 @@ class FindControllerController: UICollectionViewController , EmptyViewDelegate, 
             if sender is Int {
                 let book = self.books![sender as! Int]
                 destinatons.book = book
+//                navigation = "FindControllerController.navigation"
             }
         }
      }
