@@ -47,7 +47,7 @@ class BookDateController: UIViewController, UINavigationControllerDelegate{
     }
     
     @IBAction func completeAction(_ sender: Any) {
- 
+        
 //        if star == "star_no" {
 //           if (try?factory.isBookExists(book: book)) ?? false{
 //                try? factory.removeBook(id: book.id)
@@ -57,7 +57,7 @@ class BookDateController: UIViewController, UINavigationControllerDelegate{
 //                try? factory.addBook(cattegory: book)
 //            }
 //        }
-//        NotificationCenter.default.post(name: NSNotification.Name(rawValue: navigation), object: nil, userInfo: ["title":book.title])
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: navigation), object: nil, userInfo: ["title":book.title])
     }
     
     
