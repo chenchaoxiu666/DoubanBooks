@@ -18,7 +18,7 @@ class FindControllerController: UICollectionViewController , EmptyViewDelegate, 
     var isLoading = false
     var currentPage = 0
     var kws = ""
-    var star = "star_off"
+
     let bookdataSuge = "bookdataSuge"
     var point :CGPoint?
     
@@ -29,22 +29,19 @@ class FindControllerController: UICollectionViewController , EmptyViewDelegate, 
         collectionView.setEmtpyCollectionViewDelegate(target: self)
         let tap = UITapGestureRecognizer(target: self, action:  #selector(tapToStopShakingOrBooksSegur(_:)))
         collectionView.addGestureRecognizer(tap)
-        NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: NSNotification.Name(rawValue: navigation), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name(rawValue: navigations), object: nil)
     }
 
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
-    @objc func refresh(noti: Notification){
-        isLoading = false
-        currentPage = 0
-        books?.removeAll()
-        loadBooks(kw: kws)
-        UIAlertController.showALertAndDismiss("添加成功！", in: self, completion: {
-            self.navigationController?.popViewController(animated: true)
-            self.collectionView.reloadData()
-        })
+    
+    @objc func reload(){
+        collectionView.reloadData()
     }
+
+    
+    
     
     @objc func tapToStopShakingOrBooksSegur(_ tap: UITapGestureRecognizer){
         // 1. 停止删除模式
@@ -104,6 +101,7 @@ class FindControllerController: UICollectionViewController , EmptyViewDelegate, 
                 cell.imgCover.image = imag
             }
         }
+        var star = "star_off"
         if (try? factory.isBookExists(book: book)) ?? false{
              star = "star_on"
         }
@@ -216,7 +214,8 @@ class FindControllerController: UICollectionViewController , EmptyViewDelegate, 
             if sender is Int {
                 let book = self.books![sender as! Int]
                 destinatons.book = book
-//                navigation = "FindControllerController.navigation"
+                destinatons.category = category!
+                destinatons.readonly = true
             }
         }
      }

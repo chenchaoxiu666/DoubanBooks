@@ -53,6 +53,7 @@ class CategorisesController: UICollectionViewController ,EmptyViewDelegate{
         }
         /// selector：要做什么
         NotificationCenter.default.addObserver(self, selector: #selector(refresh), name: NSNotification.Name(rawValue: notiCategory), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name(rawValue: navigations), object: nil)
         let lpTap = UILongPressGestureRecognizer(target: self, action: #selector(longPressSwitch(_:)))
         collectionView.addGestureRecognizer(lpTap)
         let tap = UITapGestureRecognizer(target: self, action:  #selector(tapToStopShakingOrBooksSegur(_:)))
@@ -82,6 +83,10 @@ class CategorisesController: UICollectionViewController ,EmptyViewDelegate{
     
     deinit {
         NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func reload(){
+        collectionView.reloadData()
     }
     
     var longPressed = false {

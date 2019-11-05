@@ -7,10 +7,12 @@
 //
 
 import UIKit
-
+import Alamofire
+import AlamofireImage
 class BooksController: UITableViewController ,EmptyViewDelegate{
     var categories = VMCategoty()
     var books: [VMBook]?
+    let bookSuge = "bookSuge"
     let bookcell = "bookcell"
     
      let factory = BookFactory.getInstance(UIApplication.shared.delegate as! AppDelegate)
@@ -31,6 +33,15 @@ class BooksController: UITableViewController ,EmptyViewDelegate{
             })
         }
         tableView.setEmtpyTableViewDelegate(target: self)
+        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name(rawValue: navigations), object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func reload(){
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -50,16 +61,24 @@ class BooksController: UITableViewController ,EmptyViewDelegate{
         let cell = tableView.dequeueReusableCell(withIdentifier: bookcell, for: indexPath) as! BookCell
          let book = books![indexPath.row]
         cell.lblBookName.text = book.title
-//        cell.lblName.text = book.authorIntro
-        cell.lblSynopsis.text = book.summary
-//        cell.imgCover.image = UIImage(contentsOfFile: NSHomeDirectory().appending(imgDir).appending(categories.image!))
-        cell.imgNameCover.image = UIImage(named: "ic_user")
+        cell.lblName.text = book.author
+        cell.textSyonpsis.text = book.summary
+        Alamofire.request(book.image!).responseImage{ response in
+            if let imag = response.result.value {
+               cell.imgCover.image = imag
+            }
+        }
         return cell
     }
  
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 130
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: bookSuge, sender: indexPath.row)
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -100,11 +119,16 @@ class BooksController: UITableViewController ,EmptyViewDelegate{
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == bookSuge {
+            let destinatons = segue.destination as! BookDateController
+            if sender is Int {
+                let book = self.books![sender as! Int]
+                destinatons.book = book
+                destinatons.category = categories
+            }
     }
  
-    
+    }
     var isEmpty: Bool{
         get{
             if let data  = books {

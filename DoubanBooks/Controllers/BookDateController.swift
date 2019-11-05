@@ -9,8 +9,6 @@
 import UIKit
 import AlamofireImage
 import Alamofire
-
-let navigation = "BookDateController.navigation"
 class BookDateController: UIViewController, UINavigationControllerDelegate{
     @IBOutlet weak var imgCover: UIImageView!
     @IBOutlet weak var lblUserName: UILabel!
@@ -21,57 +19,60 @@ class BookDateController: UIViewController, UINavigationControllerDelegate{
     @IBOutlet var itemCollection: UIBarButtonItem!
     @IBOutlet var textAuthor: UITextView!
     @IBOutlet var textSummary: UITextView!
+    
     let factory = BookFactory.getInstance(UIApplication.shared.delegate as! AppDelegate)
-    var book = VMBook()
+    var book:VMBook?
+    var category:VMCategoty?
     var star = "star_no"
+    var readonly = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        Alamofire.request(book.image!).responseImage{ response in
+        Alamofire.request(book!.image!).responseImage{ response in
             if let imag = response.result.value {
                 self.imgCover.image = imag
             }
         }
-        self.lblUserName.text = book.author
-        self.lblPublisher.text = book.publisher
-        self.lblPubdate.text = book.pubdate
-        self.lblPrice.text = book.price
-        self.textAuthor.text = book.authorIntro
-        self.textSummary.text = book.summary
-        angTitle.title = book.title
-        if (try? factory.isBookExists(book: book)) ?? false{
+        self.lblUserName.text = book!.author
+        self.lblPublisher.text = book!.publisher
+        self.lblPubdate.text = book!.pubdate
+        self.lblPrice.text = book!.price
+        self.textAuthor.text = book!.authorIntro
+        self.textSummary.text = book!.summary
+        angTitle.title = book!.title
+        if (try? factory.isBookExists(book: book!)) ?? false{
             star = "star_yes"
         }
         itemCollection.image = UIImage(named: star)
-    }
-    
-    @IBAction func completeAction(_ sender: Any) {
         
-//        if star == "star_no" {
-//           if (try?factory.isBookExists(book: book)) ?? false{
-//                try? factory.removeBook(id: book.id)
-//            }
-//        } else {
-//            if (try?factory.isBookExists(book: book)) ?? false{
-//                try? factory.addBook(cattegory: book)
-//            }
-//        }
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: navigation), object: nil, userInfo: ["title":book.title])
+        itemCollection.isEnabled = !readonly
+    }
+    @IBAction func completeAction(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     
     
     
     
     @IBAction func collectionAction(_ sender: Any) {
-        if star == "star_no" {
-            itemCollection.image = UIImage(named: "star_yes")
-            star = "star_yes"
+        let exists = (try? factory.isBookExists(book: book!)) ?? false
+        if exists {
+            let (success, error) = try! factory.removeBook(book: book!)
+            if success {
+                 itemCollection.image = UIImage(named: "star_no")
+            } else {
+                UIAlertController.showAlert(error!, in: self)
+            }
         } else {
-            itemCollection.image = UIImage(named: "star_no")
-            star = "star_no"
+            if category != nil {
+                book!.categoryId = category!.id
+                let (success, _) =  factory.addBook(book: book!)
+                if success{
+                     itemCollection.image = UIImage(named: "star_yes")
+                }
+            }
         }
-    
     }
     /*
     // MARK: - Navigation

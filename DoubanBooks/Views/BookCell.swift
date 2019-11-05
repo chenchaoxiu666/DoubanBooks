@@ -11,9 +11,8 @@ import UIKit
 class BookCell: UITableViewCell {
     @IBOutlet weak var lblBookName: UILabel!
     @IBOutlet weak var lblName: UILabel!
-    @IBOutlet weak var lblSynopsis: UILabel!
     @IBOutlet weak var imgCover: UIImageView!
-    @IBOutlet weak var imgNameCover: UIImageView!
+    @IBOutlet var textSyonpsis: UITextView!
     
     
     override func awakeFromNib() {

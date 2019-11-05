@@ -14,7 +14,7 @@ class BookConverter {
         if dic[json_tag_count] as! Int > 0 {
             books = JSONConverter<VMBook>.getArray(json: json, key: json_tag_books)
         }
-        return books!
+        return books
     }
     
     static func getBook(json:Any) -> VMBook? {

@@ -7,6 +7,7 @@
 //
 import CoreData
 import Foundation
+let navigations = "BookFactory.navigation"
 final class BookFactory {
     // 懒汉式单例模式
     var repository:Repositry<VMBook>
@@ -30,9 +31,9 @@ final class BookFactory {
         }
     }
     
-//    func getAllBook() throws -> [VMBook] {
-//        return try repository.get()
-//    }
+    func getAllBook() throws -> [VMBook] {
+        return try repository.get()
+    }
     
     
     ///根据类别id精确查询
@@ -71,12 +72,13 @@ final class BookFactory {
     }
     ///添加图书
     ///
-    func addBook(cattegory: VMBook) -> (Bool ,String?) {
+    func addBook(book: VMBook) -> (Bool ,String?) {
         do {
-            if try repository.isEntityExists([cattegory.title!], keyword: cattegory.title!){
+            if try repository.isEntityExists([VMBook.colTitle], keyword: book.title!){
                 return (false , "同样的类别已经存在")
             }
-            try repository.insert(vm: cattegory)
+            try repository.insert(vm: book)
+            NotificationCenter.default.post(name: NSNotification.Name(navigations), object: nil)
             return (true, nil)
         }catch DataError.entityExistsError(let info){
             return (false,info)
@@ -99,18 +101,20 @@ final class BookFactory {
     func removeBook(book: VMBook) throws ->(Bool,String?) {
         do{
             if let isbn13 = book.isbn13{
-                let book = try repository.getbykey([VMBook.colIsbn13], keyword: isbn13)
+                let book = try repository.getby([VMBook.colIsbn13], keyword: isbn13)
                 if book.count > 0 {
                     try repository.delete(id: book[0].id)
                     CategotyFactory.updateEditTime(id: book[0].categoryId)
+                    NotificationCenter.default.post(name: NSNotification.Name(navigations), object: nil)
                     return (true ,nil)
                 }
                 return (false,"没有找到本地数据，是否已删除？")
             } else if let isbn10 = book.isbn10 {
-                let book = try repository.getbykey([VMBook.colIsbn10], keyword: isbn10)
+                let book = try repository.getby([VMBook.colIsbn10], keyword: isbn10)
                 if book.count > 0 {
                     try repository.delete(id: book[0].id)
                     CategotyFactory.updateEditTime(id: book[0].categoryId)
+                    NotificationCenter.default.post(name: NSNotification.Name(navigations), object: nil)
                     return (true ,nil)
                 }
                 return (false,"没有找到本地数据，是否已删除？")
