@@ -66,6 +66,7 @@ class FindControllerController: UICollectionViewController , EmptyViewDelegate, 
             tabBarController?.viewControllers![1].tabBarItem.badgeValue = kw
             isLoading = false
             currentPage = 0
+            category = nil
             kws = searchBar.text!
             books?.removeAll()
             loadBooks(kw: searchBar.text!)
@@ -214,8 +215,7 @@ class FindControllerController: UICollectionViewController , EmptyViewDelegate, 
             if sender is Int {
                 let book = self.books![sender as! Int]
                 destinatons.book = book
-                destinatons.category = category!
-                destinatons.readonly = true
+                destinatons.category = category
             }
         }
      }

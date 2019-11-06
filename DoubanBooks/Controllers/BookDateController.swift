@@ -28,7 +28,6 @@ class BookDateController: UIViewController, UINavigationControllerDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         Alamofire.request(book!.image!).responseImage{ response in
             if let imag = response.result.value {
                 self.imgCover.image = imag

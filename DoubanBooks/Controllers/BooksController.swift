@@ -76,7 +76,15 @@ class BooksController: UITableViewController ,EmptyViewDelegate{
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: bookSuge, sender: indexPath.row)
+        performSegue(withIdentifier: bookSuge, sender: indexPath.item)
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
     }
     
     /*
@@ -87,17 +95,17 @@ class BooksController: UITableViewController ,EmptyViewDelegate{
     }
     */
 
-    /*
+   
     // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+//            let book = self.books![indexPath.row]
+            try! factory.removeBook(book: books![indexPath.row])
+            books = try? factory.getBooksOf(category: categories.id)
+            tableView.reloadData()
+        }
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.
@@ -121,11 +129,12 @@ class BooksController: UITableViewController ,EmptyViewDelegate{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == bookSuge {
             let destinatons = segue.destination as! BookDateController
-            if sender is Int {
+//            if sender is Int {
                 let book = self.books![sender as! Int]
                 destinatons.book = book
                 destinatons.category = categories
-            }
+                destinatons.readonly = true
+//            }
     }
  
     }
