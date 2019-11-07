@@ -100,9 +100,12 @@ class BooksController: UITableViewController ,EmptyViewDelegate{
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
 //            let book = self.books![indexPath.row]
-            try! factory.removeBook(book: books![indexPath.row])
-            books = try? factory.getBooksOf(category: categories.id)
-            tableView.reloadData()
+            let (s, _) =  try! factory.removeBook(book: books![indexPath.row])
+            if s {
+                books = try? factory.getBooksOf(category: categories.id)
+                tableView.reloadData()
+            }
+
         }
     }
     

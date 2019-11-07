@@ -28,6 +28,8 @@
 		BA655E47235A8DCA00767920 /* AddCategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA655E46235A8DCA00767920 /* AddCategoryController.swift */; };
 		BA655E49235ABC5100767920 /* CategoryTimeList.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA655E48235ABC5100767920 /* CategoryTimeList.plist */; };
 		BA655E4D235AC02200767920 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA655E4C235AC02200767920 /* DateExtensions.swift */; };
+		BA670AEC2373A4120043A12B /* ActionViewPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA670AEB2373A4120043A12B /* ActionViewPicker.swift */; };
+		BA670AEE2373A4700043A12B /* ActionViewDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA670AED2373A4700043A12B /* ActionViewDelegates.swift */; };
 		BA6714DC2351507A0067D4F1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6714DB2351507A0067D4F1 /* AppDelegate.swift */; };
 		BA6714E12351507A0067D4F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA6714DF2351507A0067D4F1 /* Main.storyboard */; };
 		BA6714E42351507A0067D4F1 /* DoubanBooks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BA6714E22351507A0067D4F1 /* DoubanBooks.xcdatamodeld */; };
@@ -81,6 +83,8 @@
 		BA655E46235A8DCA00767920 /* AddCategoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryController.swift; sourceTree = "<group>"; };
 		BA655E48235ABC5100767920 /* CategoryTimeList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = CategoryTimeList.plist; sourceTree = "<group>"; };
 		BA655E4C235AC02200767920 /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
+		BA670AEB2373A4120043A12B /* ActionViewPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewPicker.swift; sourceTree = "<group>"; };
+		BA670AED2373A4700043A12B /* ActionViewDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewDelegates.swift; sourceTree = "<group>"; };
 		BA6714D82351507A0067D4F1 /* DoubanBooks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoubanBooks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA6714DB2351507A0067D4F1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA6714E02351507A0067D4F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -222,6 +226,8 @@
 				BA3E6B08236148B100AD878D /* FuncTools.swift */,
 				BA569168236A83260027C7B3 /* HeaderReusableView.swift */,
 				BA56916A236A8FDB0027C7B3 /* FindViewCell.swift */,
+				BA670AEB2373A4120043A12B /* ActionViewPicker.swift */,
+				BA670AED2373A4700043A12B /* ActionViewDelegates.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -460,6 +466,8 @@
 				BA61706D2368188B00902C35 /* JSONConverter.swift in Sources */,
 				BA6C15DD2355CBCF00871637 /* Repositry.swift in Sources */,
 				BA67151023516BF40067D4F1 /* CategoryRepository.swift in Sources */,
+				BA670AEE2373A4700043A12B /* ActionViewDelegates.swift in Sources */,
+				BA670AEC2373A4120043A12B /* ActionViewPicker.swift in Sources */,
 				BA655E4D235AC02200767920 /* DateExtensions.swift in Sources */,
 				BA61706C2368188B00902C35 /* BooksJson.swift in Sources */,
 				BA5140F523540697006769B0 /* BookFactory.swift in Sources */,

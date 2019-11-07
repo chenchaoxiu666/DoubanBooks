@@ -237,6 +237,22 @@
             </objects>
             <point key="canvasLocation" x="3431.884057971015" y="137.94642857142856"/>
         </scene>
+        <!--读书统计-->
+        <scene sceneID="xBy-Qs-aRM">
+            <objects>
+                <viewController id="yUs-9i-rcR" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TJm-Jw-idl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="33h-wn-Qx4"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="读书统计" id="uYi-ny-jkZ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EGf-4D-zbS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1796" y="864"/>
+        </scene>
         <!--Add Category Controller-->
         <scene sceneID="wTc-cX-bSa">
             <objects>
@@ -537,11 +553,11 @@
             </objects>
             <point key="canvasLocation" x="4300" y="138"/>
         </scene>
-        <!--我的-->
+        <!--我的图书-->
         <scene sceneID="I5S-cO-clC">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lUd-gI-BWo" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="我的" id="VYj-VO-wa6"/>
+                    <tabBarItem key="tabBarItem" title="我的图书" id="VYj-VO-wa6"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZMW-Nj-fuc">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -569,6 +585,7 @@
                     <connections>
                         <segue destination="lUd-gI-BWo" kind="relationship" relationship="viewControllers" id="bOz-s5-O46"/>
                         <segue destination="1FH-OG-hai" kind="relationship" relationship="viewControllers" id="7i1-ni-cLp"/>
+                        <segue destination="yUs-9i-rcR" kind="relationship" relationship="viewControllers" id="X1Y-EB-R3t"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7bn-Si-OWX" userLabel="First Responder" sceneMemberID="firstResponder"/>

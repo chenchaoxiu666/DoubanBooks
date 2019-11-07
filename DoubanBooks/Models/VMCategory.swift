@@ -7,7 +7,18 @@
 //
 import CoreData
 import Foundation
-class VMCategoty:NSObject,DataViewModilDelegate{
+class VMCategoty:NSObject,DataViewModilDelegate,ActionViewDelegates{
+    var title: String {
+        get{
+            return name ?? ""
+        }
+    }
+    
+    var value: Any{
+        get{
+            return id.uuidString 
+        }
+    }
     
     var id:UUID
     var name:String?

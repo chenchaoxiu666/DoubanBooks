@@ -9,7 +9,8 @@
 import UIKit
 import AlamofireImage
 import Alamofire
-class BookDateController: UIViewController, UINavigationControllerDelegate{
+class BookDateController: UIViewController, UINavigationControllerDelegate,PickerItemSelectdeDelegates{
+
     @IBOutlet weak var imgCover: UIImageView!
     @IBOutlet weak var lblUserName: UILabel!
     @IBOutlet weak var lblPublisher: UILabel!
@@ -21,13 +22,18 @@ class BookDateController: UIViewController, UINavigationControllerDelegate{
     @IBOutlet var textSummary: UITextView!
     
     let factory = BookFactory.getInstance(UIApplication.shared.delegate as! AppDelegate)
+    let factorys = CategotyFactory.getInstance(UIApplication.shared.delegate as! AppDelegate)
     var book:VMBook?
     var category:VMCategoty?
     var star = "star_no"
     var readonly = false
+    var categorys:[VMCategoty]?
+//    private var picker:ActionViewPicker?
+//    private var pickOfCollection:ActionColl
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        categorys = try? factorys.getAllCategories()
         Alamofire.request(book!.image!).responseImage{ response in
             if let imag = response.result.value {
                 self.imgCover.image = imag
@@ -65,14 +71,29 @@ class BookDateController: UIViewController, UINavigationControllerDelegate{
             }
         } else {
             if category != nil {
+                
                 book!.categoryId = category!.id
                 let (success, _) =  factory.addBook(book: book!)
                 if success{
                      itemCollection.image = UIImage(named: "star_yes")
                 }
+            } else{
+                
+                let picker = ActionViewPicker<VMCategoty>(handeler: self, title: "选择图书类别", items: categorys!, mother: self.view)
+                picker.show()
             }
         }
     }
+    
+    func itemSelectde(index: Int) {
+        let category = categorys![index]
+        book?.categoryId = category.id
+        let (success, _) =  factory.addBook(book: book!)
+        if success{
+            itemCollection.image = UIImage(named: "star_yes")
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
