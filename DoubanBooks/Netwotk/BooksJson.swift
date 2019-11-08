@@ -27,7 +27,7 @@ let json_books_id = "id"
 
 class BooksJson {
     static func getSearchUrl(keyword: String, page: Int ) -> String{
-        let url = "https://douban.uieee.com/v2/book/search?q=" + keyword + "&srart=" + String(page * 20)
+        let url = "https://douban.uieee.com/v2/book/search?q=" + keyword + "&start=" + String(page * 20)
         return url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
     }
  

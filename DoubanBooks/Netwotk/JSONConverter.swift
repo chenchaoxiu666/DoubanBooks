@@ -55,7 +55,7 @@ class JSONConverter<T:JSONable> {
     }
     
     
-    static func extractUsefulJson(origin:String, keyArr:Array<Dictionary<String,Bool>>) -> String {
+    static func extractUsefulJson(origin:Any, keyArr:Array<Dictionary<String,Bool>>) -> String {
         var obj:String?
         for key in keyArr{
             for k in key{
@@ -66,7 +66,7 @@ class JSONConverter<T:JSONable> {
         return obj!
     }
     
-    static func ripShell(json: String, isSingle: Bool, key: String) -> String {
+    static func ripShell(json: Any, isSingle: Bool, key: String) -> String {
         if isSingle {
             var obj = json as! Dictionary<String, Any>
             return obj[key] as! String
