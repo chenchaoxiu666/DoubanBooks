@@ -17,7 +17,7 @@ class CategorisesController: UICollectionViewController ,EmptyViewDelegate{
     let addCategorySegu = "addCategorySegu"
     let BooksSegu = "BooksSegu"
     let factory = CategotyFactory.getInstance(UIApplication.shared.delegate as! AppDelegate)
-    
+    let factorys = BookFactory.getInstance(UIApplication.shared.delegate as! AppDelegate)
     var isEmpty: Bool{
         get{
             if let data  = categories {
@@ -130,11 +130,16 @@ class CategorisesController: UICollectionViewController ,EmptyViewDelegate{
         UIAlertController.showConfirm("确定删除？", in: self, confirm: {_ in
             let index = self.collectionView.indexPathForItem(at: self.point!)
             let category = self.categories![index!.item]
+            let books = try? self.factorys.getBooksOf(category: category.id)
+            for book in books!{
+                try? self.factorys.removeBook(book: book)
+            }
            let (sueeccrr, error) =  self.factory.removeCategory(category: category)
             if !sueeccrr{
                 UIAlertController.showALertAndDismiss(error!, in: self)
             } else {
                 self.categories?.remove(at: index!.item)
+                
             }
             let fileManager = FileManager.default
             do{

@@ -39,6 +39,9 @@
 		BA67150E23516B010067D4F1 /* VMCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA67150D23516B010067D4F1 /* VMCategory.swift */; };
 		BA67151023516BF40067D4F1 /* CategoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA67150F23516BF40067D4F1 /* CategoryRepository.swift */; };
 		BA671512235181780067D4F1 /* DataError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA671511235181780067D4F1 /* DataError.swift */; };
+		BA692DB423763FF60009D098 /* ActionTablePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA692DB323763FF60009D098 /* ActionTablePicker.swift */; };
+		BA692DB623765F460009D098 /* ActionCollectionPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA692DB523765F460009D098 /* ActionCollectionPicker.swift */; };
+		BA692DB8237660430009D098 /* ActionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA692DB7237660430009D098 /* ActionCollectionViewCell.swift */; };
 		BA6C15DD2355CBCF00871637 /* Repositry.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6C15DC2355CBCF00871637 /* Repositry.swift */; };
 		BA6C15DF2355CC8800871637 /* DataViewModilDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6C15DE2355CC8800871637 /* DataViewModilDelegate.swift */; };
 		BA875A3623595594005BB2BD /* CategorisesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA875A3523595594005BB2BD /* CategorisesController.swift */; };
@@ -103,6 +106,9 @@
 		BA67150D23516B010067D4F1 /* VMCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VMCategory.swift; sourceTree = "<group>"; };
 		BA67150F23516BF40067D4F1 /* CategoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRepository.swift; sourceTree = "<group>"; };
 		BA671511235181780067D4F1 /* DataError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataError.swift; sourceTree = "<group>"; };
+		BA692DB323763FF60009D098 /* ActionTablePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionTablePicker.swift; sourceTree = "<group>"; };
+		BA692DB523765F460009D098 /* ActionCollectionPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionCollectionPicker.swift; sourceTree = "<group>"; };
+		BA692DB7237660430009D098 /* ActionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionCollectionViewCell.swift; sourceTree = "<group>"; };
 		BA6C15DC2355CBCF00871637 /* Repositry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repositry.swift; sourceTree = "<group>"; };
 		BA6C15DE2355CC8800871637 /* DataViewModilDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewModilDelegate.swift; sourceTree = "<group>"; };
 		BA875A3523595594005BB2BD /* CategorisesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorisesController.swift; sourceTree = "<group>"; };
@@ -228,6 +234,9 @@
 				BA56916A236A8FDB0027C7B3 /* FindViewCell.swift */,
 				BA670AEB2373A4120043A12B /* ActionViewPicker.swift */,
 				BA670AED2373A4700043A12B /* ActionViewDelegates.swift */,
+				BA692DB323763FF60009D098 /* ActionTablePicker.swift */,
+				BA692DB523765F460009D098 /* ActionCollectionPicker.swift */,
+				BA692DB7237660430009D098 /* ActionCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -448,10 +457,12 @@
 				BA875A3823596042005BB2BD /* CategoryCell.swift in Sources */,
 				BA671512235181780067D4F1 /* DataError.swift in Sources */,
 				BA10DC80236975BF003A6B94 /* BookConverter.swift in Sources */,
+				BA692DB8237660430009D098 /* ActionCollectionViewCell.swift in Sources */,
 				BA655E47235A8DCA00767920 /* AddCategoryController.swift in Sources */,
 				BA487956236D34770099078C /* BookDateController.swift in Sources */,
 				BA56916B236A8FDB0027C7B3 /* FindViewCell.swift in Sources */,
 				BA5140F12353F532006769B0 /* CategotyFactory.swift in Sources */,
+				BA692DB623765F460009D098 /* ActionCollectionPicker.swift in Sources */,
 				BA5140F723540911006769B0 /* BookRepository.swift in Sources */,
 				BA875A3623595594005BB2BD /* CategorisesController.swift in Sources */,
 				BA569167236A6B610027C7B3 /* FindControllerController.swift in Sources */,
@@ -466,6 +477,7 @@
 				BA61706D2368188B00902C35 /* JSONConverter.swift in Sources */,
 				BA6C15DD2355CBCF00871637 /* Repositry.swift in Sources */,
 				BA67151023516BF40067D4F1 /* CategoryRepository.swift in Sources */,
+				BA692DB423763FF60009D098 /* ActionTablePicker.swift in Sources */,
 				BA670AEE2373A4700043A12B /* ActionViewDelegates.swift in Sources */,
 				BA670AEC2373A4120043A12B /* ActionViewPicker.swift in Sources */,
 				BA655E4D235AC02200767920 /* DateExtensions.swift in Sources */,

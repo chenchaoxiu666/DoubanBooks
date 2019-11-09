@@ -9,7 +9,10 @@
 import UIKit
 import AlamofireImage
 import Alamofire
-class BookDateController: UIViewController, UINavigationControllerDelegate,PickerItemSelectdeDelegates{
+/// table: UITableViewDelegate,UITableViewDataSource
+class BookDateController: UIViewController, UINavigationControllerDelegate,UICollectionViewDataSource,UICollectionViewDelegate{
+  
+    
 
     @IBOutlet weak var imgCover: UIImageView!
     @IBOutlet weak var lblUserName: UILabel!
@@ -28,8 +31,7 @@ class BookDateController: UIViewController, UINavigationControllerDelegate,Picke
     var star = "star_no"
     var readonly = false
     var categorys:[VMCategoty]?
-//    private var picker:ActionViewPicker?
-//    private var pickOfCollection:ActionColl
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,8 +60,6 @@ class BookDateController: UIViewController, UINavigationControllerDelegate,Picke
     }
     
     
-    
-    
     @IBAction func collectionAction(_ sender: Any) {
         let exists = (try? factory.isBookExists(book: book!)) ?? false
         if exists {
@@ -79,21 +79,71 @@ class BookDateController: UIViewController, UINavigationControllerDelegate,Picke
                 }
             } else{
                 
-                let picker = ActionViewPicker<VMCategoty>(handeler: self, title: "选择图书类别", items: categorys!, mother: self.view)
-                picker.show()
+//                let picker = ActionViewPicker<VMCategoty>(handeler: self, title: "选择图书类别", items: categorys!, mother: self.view)
+//                picker.show()
+                /// tableview
+//                picker = ActionTablePicker(title: "选择图书类别", count: categorys!.count, dataSource: self , delegate: self).show(superView: self.view)
+                pickerOfCollection = ActionCollectionPicker(title: "选择图书类别", count: categorys!.count, dataSource: self, delegate: self, reusdId: actionCellReuseId).show(superView: self.view)
             }
         }
     }
     
+     private var picker:ActionTablePicker?
+    private var pickerOfCollection:ActionCollectionPicker?
     func itemSelectde(index: Int) {
         let category = categorys![index]
         book?.categoryId = category.id
         let (success, _) =  factory.addBook(book: book!)
         if success{
             itemCollection.image = UIImage(named: "star_yes")
+            NotificationCenter.default.post(name: NSNotification.Name(navigations), object: nil)
         }
     }
     
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return categorys?.count ?? 0
+    }
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
+        let category = categorys![indexPath.row]
+        cell.textLabel?.text = category.name
+        return cell
+    }
+    
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
+    
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        itemSelectde(index: indexPath.row)
+        if picker != nil {
+            picker?.cancel()
+        }
+    }
+    
+    private let actionCellReuseId = "actionCell"
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return categorys?.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: actionCellReuseId, for: indexPath) as! ActionCollectionViewCell
+        let category = categorys![indexPath.row]
+        cell.lblTitle.text = category.name
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        itemSelectde(index: indexPath.row)
+        if pickerOfCollection != nil {
+            pickerOfCollection?.cancel()
+        }
+    }
     /*
     // MARK: - Navigation
 
