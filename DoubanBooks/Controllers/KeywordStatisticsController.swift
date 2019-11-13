@@ -1,0 +1,79 @@
+//
+//  KeywordStatisticsController.swift
+//  DoubanBooks
+//
+//  Created by 2017yd on 2019/11/12.
+//  Copyright © 2019年 2017yd. All rights reserved.
+//
+
+import UIKit
+import AAInfographics
+class KeywordStatisticsController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let chartWidth = UIScreen.main.bounds.width
+        let chartHeight = UIScreen.main.bounds.height - 150
+        let gradientColorArr = [
+            AAGradientColor.oceanBlue,
+            AAGradientColor.sanguine,
+            AAGradientColor.lusciousLime,
+            AAGradientColor.purpleLake,
+            AAGradientColor.freshPapaya,
+            AAGradientColor.ultramarine,
+            AAGradientColor.pinkSugar,
+            AAGradientColor.lemonDrizzle,
+            AAGradientColor.victoriaPurple,
+            AAGradientColor.springGreens,
+            AAGradientColor.mysticMauve,
+            AAGradientColor.reflexSilver,
+            AAGradientColor.newLeaf,
+            AAGradientColor.cottonCandy,
+            AAGradientColor.pixieDust,
+            AAGradientColor.fizzyPeach,
+            AAGradientColor.sweetDream,
+            AAGradientColor.firebrick,
+            AAGradientColor.wroughtIron,
+            AAGradientColor.deepSea,
+            AAGradientColor.coastalBreeze,
+            AAGradientColor.eveningDelight,
+            ]
+        if view.subviews.count > 0{
+            let old = view.subviews[0]
+            old.removeFromSuperview()
+        }
+        
+        let chart = AAChartView()
+        chart.frame = CGRect(x: 0, y: 0, width: chartWidth, height: chartHeight)
+        view.addSubview(chart)
+        let keywords = UserCookies.getTopKeywords(top: 10)
+        let categories = keywords.map({$0.0})
+        let frequencies = keywords.map({$0.1})
+        
+        let chrModel = AAChartModel()
+            .chartType(.bar)
+            .title("不同类别图书访问量统计")
+            //            .subtitle("")
+            .categories(categories )
+            .colorsTheme(gradientColorArr as [Any])
+            .series([
+                AASeriesElement()
+                    .name("使用频率")
+                    .data(frequencies),
+                ])
+        chart.aa_drawChartWithChartModel(chrModel)
+    }
+    }
+    
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+

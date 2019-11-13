@@ -54,6 +54,11 @@ class BookDateController: UIViewController, UINavigationControllerDelegate,UICol
         itemCollection.image = UIImage(named: star)
         
         itemCollection.isEnabled = !readonly
+        
+        if category != nil {
+            let c =  UserCookies.getRecords(of: category!.id)
+            UserCookies.updateRecords(of: category!.id, count: c + 1)
+        }
     }
     @IBAction func completeAction(_ sender: Any) {
         dismiss(animated: true, completion: nil)

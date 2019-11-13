@@ -14,6 +14,12 @@
 		BA3E6B072361447D00AD878D /* ScrollViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3E6B062361447D00AD878D /* ScrollViewExtension.swift */; };
 		BA3E6B09236148B100AD878D /* FuncTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3E6B08236148B100AD878D /* FuncTools.swift */; };
 		BA487956236D34770099078C /* BookDateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA487955236D34770099078C /* BookDateController.swift */; };
+		BA501F68237A946C00881337 /* ContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA501F67237A946C00881337 /* ContainerController.swift */; };
+		BA501F6A237A95E700881337 /* PageContainerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA501F69237A95E700881337 /* PageContainerDelegate.swift */; };
+		BA501F6C237A986E00881337 /* ChartsPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA501F6B237A986E00881337 /* ChartsPageController.swift */; };
+		BA501F70237AA0B100881337 /* CategoryBookStatisticsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA501F6F237AA0B100881337 /* CategoryBookStatisticsController.swift */; };
+		BA501F72237AA0E100881337 /* CategoryReadingStatisticsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA501F71237AA0E100881337 /* CategoryReadingStatisticsController.swift */; };
+		BA501F74237AA10A00881337 /* KeywordStatisticsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA501F73237AA10A00881337 /* KeywordStatisticsController.swift */; };
 		BA5140F12353F532006769B0 /* CategotyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5140F02353F532006769B0 /* CategotyFactory.swift */; };
 		BA5140F323540461006769B0 /* VMBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5140F223540461006769B0 /* VMBook.swift */; };
 		BA5140F523540697006769B0 /* BookFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5140F423540697006769B0 /* BookFactory.swift */; };
@@ -22,6 +28,7 @@
 		BA569169236A83260027C7B3 /* HeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA569168236A83260027C7B3 /* HeaderReusableView.swift */; };
 		BA56916B236A8FDB0027C7B3 /* FindViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA56916A236A8FDB0027C7B3 /* FindViewCell.swift */; };
 		BA598046235EF0960068E1CA /* BooksController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA598045235EF0960068E1CA /* BooksController.swift */; };
+		BA5B3563237BFB9300E9ADD8 /* UserCookies.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5B3562237BFB9300E9ADD8 /* UserCookies.swift */; };
 		BA61706C2368188B00902C35 /* BooksJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA61706A2368188B00902C35 /* BooksJson.swift */; };
 		BA61706D2368188B00902C35 /* JSONConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA61706B2368188B00902C35 /* JSONConverter.swift */; };
 		BA61706F23683F3000902C35 /* JSONable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA61706E23683F3000902C35 /* JSONable.swift */; };
@@ -72,6 +79,12 @@
 		BA3E6B062361447D00AD878D /* ScrollViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollViewExtension.swift; sourceTree = "<group>"; };
 		BA3E6B08236148B100AD878D /* FuncTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuncTools.swift; sourceTree = "<group>"; };
 		BA487955236D34770099078C /* BookDateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDateController.swift; sourceTree = "<group>"; };
+		BA501F67237A946C00881337 /* ContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerController.swift; sourceTree = "<group>"; };
+		BA501F69237A95E700881337 /* PageContainerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageContainerDelegate.swift; sourceTree = "<group>"; };
+		BA501F6B237A986E00881337 /* ChartsPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsPageController.swift; sourceTree = "<group>"; };
+		BA501F6F237AA0B100881337 /* CategoryBookStatisticsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryBookStatisticsController.swift; sourceTree = "<group>"; };
+		BA501F71237AA0E100881337 /* CategoryReadingStatisticsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryReadingStatisticsController.swift; sourceTree = "<group>"; };
+		BA501F73237AA10A00881337 /* KeywordStatisticsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordStatisticsController.swift; sourceTree = "<group>"; };
 		BA5140F02353F532006769B0 /* CategotyFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategotyFactory.swift; sourceTree = "<group>"; };
 		BA5140F223540461006769B0 /* VMBook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VMBook.swift; sourceTree = "<group>"; };
 		BA5140F423540697006769B0 /* BookFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookFactory.swift; sourceTree = "<group>"; };
@@ -80,6 +93,7 @@
 		BA569168236A83260027C7B3 /* HeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderReusableView.swift; sourceTree = "<group>"; };
 		BA56916A236A8FDB0027C7B3 /* FindViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindViewCell.swift; sourceTree = "<group>"; };
 		BA598045235EF0960068E1CA /* BooksController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksController.swift; sourceTree = "<group>"; };
+		BA5B3562237BFB9300E9ADD8 /* UserCookies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCookies.swift; sourceTree = "<group>"; };
 		BA61706A2368188B00902C35 /* BooksJson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BooksJson.swift; sourceTree = "<group>"; };
 		BA61706B2368188B00902C35 /* JSONConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONConverter.swift; sourceTree = "<group>"; };
 		BA61706E23683F3000902C35 /* JSONable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONable.swift; sourceTree = "<group>"; };
@@ -218,6 +232,11 @@
 				BA598045235EF0960068E1CA /* BooksController.swift */,
 				BA569166236A6B610027C7B3 /* FindControllerController.swift */,
 				BA487955236D34770099078C /* BookDateController.swift */,
+				BA501F67237A946C00881337 /* ContainerController.swift */,
+				BA501F6B237A986E00881337 /* ChartsPageController.swift */,
+				BA501F6F237AA0B100881337 /* CategoryBookStatisticsController.swift */,
+				BA501F71237AA0E100881337 /* CategoryReadingStatisticsController.swift */,
+				BA501F73237AA10A00881337 /* KeywordStatisticsController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -248,6 +267,7 @@
 				BA5140F02353F532006769B0 /* CategotyFactory.swift */,
 				BA5140F223540461006769B0 /* VMBook.swift */,
 				BA5140F423540697006769B0 /* BookFactory.swift */,
+				BA5B3562237BFB9300E9ADD8 /* UserCookies.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -269,6 +289,7 @@
 				BA671511235181780067D4F1 /* DataError.swift */,
 				BA6C15DC2355CBCF00871637 /* Repositry.swift */,
 				BA6C15DE2355CC8800871637 /* DataViewModilDelegate.swift */,
+				BA501F69237A95E700881337 /* PageContainerDelegate.swift */,
 			);
 			path = Perslsts;
 			sourceTree = "<group>";
@@ -454,16 +475,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA3E6B032361352100AD878D /* BookCell.swift in Sources */,
+				BA501F6A237A95E700881337 /* PageContainerDelegate.swift in Sources */,
 				BA875A3823596042005BB2BD /* CategoryCell.swift in Sources */,
 				BA671512235181780067D4F1 /* DataError.swift in Sources */,
 				BA10DC80236975BF003A6B94 /* BookConverter.swift in Sources */,
+				BA501F70237AA0B100881337 /* CategoryBookStatisticsController.swift in Sources */,
 				BA692DB8237660430009D098 /* ActionCollectionViewCell.swift in Sources */,
 				BA655E47235A8DCA00767920 /* AddCategoryController.swift in Sources */,
+				BA501F74237AA10A00881337 /* KeywordStatisticsController.swift in Sources */,
 				BA487956236D34770099078C /* BookDateController.swift in Sources */,
+				BA5B3563237BFB9300E9ADD8 /* UserCookies.swift in Sources */,
 				BA56916B236A8FDB0027C7B3 /* FindViewCell.swift in Sources */,
 				BA5140F12353F532006769B0 /* CategotyFactory.swift in Sources */,
 				BA692DB623765F460009D098 /* ActionCollectionPicker.swift in Sources */,
 				BA5140F723540911006769B0 /* BookRepository.swift in Sources */,
+				BA501F68237A946C00881337 /* ContainerController.swift in Sources */,
 				BA875A3623595594005BB2BD /* CategorisesController.swift in Sources */,
 				BA569167236A6B610027C7B3 /* FindControllerController.swift in Sources */,
 				BA3E6B052361407800AD878D /* EmptyViewDelegate.swift in Sources */,
@@ -471,6 +497,7 @@
 				BA6C15DF2355CC8800871637 /* DataViewModilDelegate.swift in Sources */,
 				BA67150E23516B010067D4F1 /* VMCategory.swift in Sources */,
 				BA875A3A23596879005BB2BD /* AlertExtenslons.swift in Sources */,
+				BA501F6C237A986E00881337 /* ChartsPageController.swift in Sources */,
 				BA3E6B09236148B100AD878D /* FuncTools.swift in Sources */,
 				BA6714E42351507A0067D4F1 /* DoubanBooks.xcdatamodeld in Sources */,
 				BA5140F323540461006769B0 /* VMBook.swift in Sources */,
@@ -487,6 +514,7 @@
 				BA6714DC2351507A0067D4F1 /* AppDelegate.swift in Sources */,
 				BA3E6B072361447D00AD878D /* ScrollViewExtension.swift in Sources */,
 				BA61706F23683F3000902C35 /* JSONable.swift in Sources */,
+				BA501F72237AA0E100881337 /* CategoryReadingStatisticsController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

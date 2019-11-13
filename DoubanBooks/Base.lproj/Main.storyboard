@@ -237,21 +237,188 @@
             </objects>
             <point key="canvasLocation" x="3431.884057971015" y="137.94642857142856"/>
         </scene>
+        <!--类别图书统计-->
+        <scene sceneID="Oca-Ji-mE3">
+            <objects>
+                <viewController storyboardIdentifier="chart1" title="类别图书统计" id="8ry-8p-WJO" customClass="CategoryBookStatisticsController" customModule="DoubanBooks" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pPK-1i-TlY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="a" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YSG-UQ-byk">
+                                <rect key="frame" x="186" y="407" width="42" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="igY-qg-gh0"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IX1-S5-33L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1414.4927536231885" y="849.77678571428567"/>
+        </scene>
+        <!--类别阅读统计-->
+        <scene sceneID="5Dr-zN-hy2">
+            <objects>
+                <viewController storyboardIdentifier="chart2" title="类别阅读统计" id="oSE-Fx-K7G" customClass="CategoryReadingStatisticsController" customModule="DoubanBooks" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZLm-Zn-jol">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="b" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V4B-ce-Cuk">
+                                <rect key="frame" x="186" y="398" width="11" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="HJg-7O-ocZ"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Qh-q6-dXL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-662" y="850"/>
+        </scene>
+        <!--关键词统计-->
+        <scene sceneID="KVa-Nb-qTk">
+            <objects>
+                <viewController storyboardIdentifier="chart3" title="关键词统计" id="Azp-qy-GHp" customClass="KeywordStatisticsController" customModule="DoubanBooks" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="gkI-ci-yI7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="c" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uwa-4i-fVg">
+                                <rect key="frame" x="186" y="438" width="10" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="43f-g9-TU5"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vTt-Zm-wQX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="111.59420289855073" y="849.77678571428567"/>
+        </scene>
         <!--读书统计-->
         <scene sceneID="xBy-Qs-aRM">
             <objects>
-                <viewController id="yUs-9i-rcR" sceneMemberID="viewController">
+                <viewController id="yUs-9i-rcR" customClass="ContainerController" customModule="DoubanBooks" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TJm-Jw-idl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wB0-12-Dg0">
+                                <rect key="frame" x="0.0" y="44" width="138" height="30"/>
+                                <state key="normal" title="类别图书统计">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="tapToChangeChart:" destination="yUs-9i-rcR" eventType="touchUpInside" id="j5h-df-yBe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6tK-6k-TJ0">
+                                <rect key="frame" x="138" y="44" width="138" height="30"/>
+                                <state key="normal" title="类别阅读统计">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="tapToChangeChart:" destination="yUs-9i-rcR" eventType="touchUpInside" id="cie-MR-qM0"/>
+                                </connections>
+                            </button>
+                            <view tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jAF-Qe-OBj">
+                                <rect key="frame" x="276" y="74" width="138" height="10"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="10" id="0iB-F2-rye"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rld-tq-Bxr">
+                                <rect key="frame" x="0.0" y="74" width="138" height="10"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="10" id="vw6-HT-scm"/>
+                                </constraints>
+                            </view>
+                            <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f5B-qT-u54">
+                                <rect key="frame" x="138" y="74" width="138" height="10"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="10" id="xlA-7k-SAp"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jg1-CQ-ub7">
+                                <rect key="frame" x="276" y="44" width="138" height="30"/>
+                                <state key="normal" title="十大关键词">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="tapToChangeChart:" destination="yUs-9i-rcR" eventType="touchUpInside" id="670-Xe-53K"/>
+                                </connections>
+                            </button>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f5t-TC-MVN">
+                                <rect key="frame" x="0.0" y="84" width="414" height="730"/>
+                                <connections>
+                                    <segue destination="7JR-Ab-wMB" kind="embed" identifier="Main" id="6Qb-g1-rTF"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Rld-tq-Bxr" firstAttribute="top" secondItem="wB0-12-Dg0" secondAttribute="bottom" id="1LB-po-smT"/>
+                            <constraint firstItem="f5t-TC-MVN" firstAttribute="leading" secondItem="33h-wn-Qx4" secondAttribute="leading" id="4SW-o9-k1I"/>
+                            <constraint firstItem="wB0-12-Dg0" firstAttribute="leading" secondItem="33h-wn-Qx4" secondAttribute="leading" id="5gG-BT-4EL"/>
+                            <constraint firstItem="6tK-6k-TJ0" firstAttribute="top" secondItem="33h-wn-Qx4" secondAttribute="top" id="9T2-8f-t9h"/>
+                            <constraint firstItem="f5B-qT-u54" firstAttribute="leading" secondItem="Rld-tq-Bxr" secondAttribute="trailing" id="Bhj-14-Poy"/>
+                            <constraint firstItem="wB0-12-Dg0" firstAttribute="top" secondItem="33h-wn-Qx4" secondAttribute="top" id="Jv5-lu-hFc"/>
+                            <constraint firstItem="Jg1-CQ-ub7" firstAttribute="width" secondItem="6tK-6k-TJ0" secondAttribute="width" id="NnS-FD-gJc"/>
+                            <constraint firstItem="f5B-qT-u54" firstAttribute="top" secondItem="6tK-6k-TJ0" secondAttribute="bottom" id="PG3-t5-AaO"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="f5t-TC-MVN" secondAttribute="bottom" constant="-1" id="QXs-Ju-PdP"/>
+                            <constraint firstItem="Jg1-CQ-ub7" firstAttribute="width" secondItem="wB0-12-Dg0" secondAttribute="width" id="Tof-ln-HPk"/>
+                            <constraint firstItem="Jg1-CQ-ub7" firstAttribute="leading" secondItem="6tK-6k-TJ0" secondAttribute="trailing" id="Uwq-O0-bZx"/>
+                            <constraint firstItem="f5t-TC-MVN" firstAttribute="trailing" secondItem="33h-wn-Qx4" secondAttribute="trailing" id="VIH-go-C6C"/>
+                            <constraint firstItem="6tK-6k-TJ0" firstAttribute="leading" secondItem="wB0-12-Dg0" secondAttribute="trailing" id="Whi-C4-YTG"/>
+                            <constraint firstItem="Rld-tq-Bxr" firstAttribute="leading" secondItem="33h-wn-Qx4" secondAttribute="leading" id="ZD2-dS-ZW8"/>
+                            <constraint firstItem="Jg1-CQ-ub7" firstAttribute="trailing" secondItem="33h-wn-Qx4" secondAttribute="trailing" id="dKK-b7-Lvf"/>
+                            <constraint firstItem="Jg1-CQ-ub7" firstAttribute="top" secondItem="33h-wn-Qx4" secondAttribute="top" id="dVc-Th-4S7"/>
+                            <constraint firstItem="jAF-Qe-OBj" firstAttribute="leading" secondItem="f5B-qT-u54" secondAttribute="trailing" id="el9-oH-jXL"/>
+                            <constraint firstItem="f5B-qT-u54" firstAttribute="width" secondItem="Rld-tq-Bxr" secondAttribute="width" id="hrg-Cz-D04"/>
+                            <constraint firstItem="jAF-Qe-OBj" firstAttribute="width" secondItem="f5B-qT-u54" secondAttribute="width" id="nOA-YS-4hE"/>
+                            <constraint firstItem="f5t-TC-MVN" firstAttribute="top" secondItem="jAF-Qe-OBj" secondAttribute="bottom" id="o94-Gc-Jrv"/>
+                            <constraint firstItem="6tK-6k-TJ0" firstAttribute="width" secondItem="wB0-12-Dg0" secondAttribute="width" id="tYF-90-dny"/>
+                            <constraint firstItem="jAF-Qe-OBj" firstAttribute="top" secondItem="Jg1-CQ-ub7" secondAttribute="bottom" id="u4p-is-KEX"/>
+                            <constraint firstItem="jAF-Qe-OBj" firstAttribute="trailing" secondItem="33h-wn-Qx4" secondAttribute="trailing" id="wca-s9-SVg"/>
+                            <constraint firstItem="jAF-Qe-OBj" firstAttribute="width" secondItem="Rld-tq-Bxr" secondAttribute="width" id="yLl-Ml-6r0"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="33h-wn-Qx4"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="读书统计" id="uYi-ny-jkZ"/>
+                    <tabBarItem key="tabBarItem" title="读书统计" image="ic_chart" id="uYi-ny-jkZ"/>
+                    <connections>
+                        <outlet property="vIndictor1" destination="Rld-tq-Bxr" id="P0v-6k-zlf"/>
+                        <outlet property="vIndictor2" destination="f5B-qT-u54" id="KEk-0v-fgl"/>
+                        <outlet property="vIndictor3" destination="jAF-Qe-OBj" id="Ech-YU-X7K"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EGf-4D-zbS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="887" y="1002"/>
+            <point key="canvasLocation" x="886.95652173913049" y="849.77678571428567"/>
+        </scene>
+        <!--Charts Page Controller-->
+        <scene sceneID="TSl-mB-jXU">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="7JR-Ab-wMB" customClass="ChartsPageController" customModule="DoubanBooks" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jfH-NU-4qd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1683" y="850"/>
         </scene>
         <!--Add Category Controller-->
         <scene sceneID="wTc-cX-bSa">
@@ -394,7 +561,7 @@
                             <outlet property="delegate" destination="1FH-OG-hai" id="B4o-og-RoM"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" title="豆瓣图书" id="nMg-UZ-c7k"/>
+                    <tabBarItem key="tabBarItem" title="豆瓣图书" image="ic_find" id="nMg-UZ-c7k"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kyB-IV-JZQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -557,7 +724,7 @@
         <scene sceneID="I5S-cO-clC">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lUd-gI-BWo" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="我的图书" id="VYj-VO-wa6"/>
+                    <tabBarItem key="tabBarItem" title="我的图书" image="ic_local" id="VYj-VO-wa6"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZMW-Nj-fuc">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -596,6 +763,9 @@
     <resources>
         <image name="click" width="760" height="760"/>
         <image name="down" width="48" height="48"/>
+        <image name="ic_chart" width="32" height="32"/>
+        <image name="ic_find" width="32" height="32"/>
+        <image name="ic_local" width="32" height="32"/>
         <image name="ic_user" width="32" height="32"/>
         <image name="star_no" width="32" height="32"/>
         <image name="star_off" width="27" height="27"/>

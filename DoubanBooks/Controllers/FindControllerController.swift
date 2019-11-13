@@ -64,6 +64,7 @@ class FindControllerController: UICollectionViewController , EmptyViewDelegate, 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if let kw = searchBar.text {
             tabBarController?.viewControllers![1].tabBarItem.badgeValue = kw
+            UserCookies.updateFrequency(of: kw)
             isLoading = false
             currentPage = 0
             category = nil
