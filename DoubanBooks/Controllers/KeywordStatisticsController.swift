@@ -12,6 +12,10 @@ class KeywordStatisticsController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name(rawValue: notiUpdateKeywords), object: nil)
+        reload()
+    }
+    @objc func reload(){
         let chartWidth = UIScreen.main.bounds.width
         let chartHeight = UIScreen.main.bounds.height - 150
         let gradientColorArr = [

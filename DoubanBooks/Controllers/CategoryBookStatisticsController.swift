@@ -12,6 +12,10 @@ class CategoryBookStatisticsController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name(rawValue: navigations), object: nil)
+        reload()
+    }
+        @objc func reload(){
         let chartWidth = UIScreen.main.bounds.width
         let chartHeight = UIScreen.main.bounds.height - 150
         let gradientColorArr = [
@@ -38,11 +42,12 @@ class CategoryBookStatisticsController: UIViewController {
             AAGradientColor.coastalBreeze,
             AAGradientColor.eveningDelight,
             ]
+   
         if view.subviews.count > 0{
             let old = view.subviews[0]
             old.removeFromSuperview()
         }
-        
+   
         let chart = AAChartView()
         chart.frame = CGRect(x: 0, y: 0, width: chartWidth, height: chartHeight)
         view.addSubview(chart)
@@ -55,7 +60,7 @@ class CategoryBookStatisticsController: UIViewController {
             dic.append(item.name!)
             cc.append(count?.count as Any)
         }
-       
+//        let pos = cc.count - 1
         let chrModel = AAChartModel()
             .chartType(.column)
             .title("图书类别统计")
@@ -64,22 +69,15 @@ class CategoryBookStatisticsController: UIViewController {
             .colorsTheme(gradientColorArr as [Any])
             .series([
                 AASeriesElement()
-                .name(dic[0])
-                    .data([cc[0]]),
-                AASeriesElement()
-                    .name(dic[1])
-                    .data([cc[1]]),
-                
-                AASeriesElement()
-                .name(dic[2])
-                    .data([cc[2]])
-               
+//                .name(dic[0])
+                .data(cc)
                 ])
         chart.aa_drawChartWithChartModel(chrModel)
+        }
         // Do any additional setup after loading the view.
-    }
     
-
+    
+    
     /*
     // MARK: - Navigation
 

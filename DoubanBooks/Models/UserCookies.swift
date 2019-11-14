@@ -28,7 +28,7 @@ class UserCookies {
         }
         dic?.setObject(count, forKey: caregory.uuidString as NSCopying)
         dic?.write(toFile: pathOfCategoryRecords, atomically: true)
-        NotificationCenter.default.post(name: NSNotification.Name(pathOfCategoryRecords), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(notiUpdateRecordds), object: nil)
     }
     
     static func getFrequency(of keyword: String) -> Int {
@@ -58,6 +58,9 @@ class UserCookies {
             keywords.append((key as! String, value as! Int))
         }
         let sorted = keywords.sorted(by: {$0.1 > $1.1})
+        if sorted.count <= top{
+            return sorted
+        }
         return [(String,Int)]() + sorted[0...top-1]
     }
 }

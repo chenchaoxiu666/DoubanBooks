@@ -12,6 +12,11 @@ class CategoryReadingStatisticsController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(reload), name: NSNotification.Name(rawValue: notiUpdateRecordds), object: nil)
+        reload()
+    }
+    @objc func reload(){
         let chartWidth = UIScreen.main.bounds.width
         let chartHeight = UIScreen.main.bounds.height - 150
         let gradientColorArr = [
@@ -62,9 +67,10 @@ class CategoryReadingStatisticsController: UIViewController {
             //            .subtitle("")
             .categories(dd )
             .colorsTheme(gradientColorArr as [Any])
+            .dataLabelsEnabled(true)
             .series([
                 AASeriesElement()
-                    .name(dd[0])
+//                    .name(dd[0])
                     .allowPointSelect(false)
                     .data(dic),
                 ])
