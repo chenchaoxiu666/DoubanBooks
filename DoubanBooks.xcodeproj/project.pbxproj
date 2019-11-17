@@ -49,6 +49,7 @@
 		BA692DB423763FF60009D098 /* ActionTablePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA692DB323763FF60009D098 /* ActionTablePicker.swift */; };
 		BA692DB623765F460009D098 /* ActionCollectionPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA692DB523765F460009D098 /* ActionCollectionPicker.swift */; };
 		BA692DB8237660430009D098 /* ActionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA692DB7237660430009D098 /* ActionCollectionViewCell.swift */; };
+		BA6AF7C2237E3D4500775290 /* RadioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6AF7C1237E3D4500775290 /* RadioController.swift */; };
 		BA6C15DD2355CBCF00871637 /* Repositry.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6C15DC2355CBCF00871637 /* Repositry.swift */; };
 		BA6C15DF2355CC8800871637 /* DataViewModilDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6C15DE2355CC8800871637 /* DataViewModilDelegate.swift */; };
 		BA875A3623595594005BB2BD /* CategorisesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA875A3523595594005BB2BD /* CategorisesController.swift */; };
@@ -123,6 +124,7 @@
 		BA692DB323763FF60009D098 /* ActionTablePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionTablePicker.swift; sourceTree = "<group>"; };
 		BA692DB523765F460009D098 /* ActionCollectionPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionCollectionPicker.swift; sourceTree = "<group>"; };
 		BA692DB7237660430009D098 /* ActionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionCollectionViewCell.swift; sourceTree = "<group>"; };
+		BA6AF7C1237E3D4500775290 /* RadioController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioController.swift; sourceTree = "<group>"; };
 		BA6C15DC2355CBCF00871637 /* Repositry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repositry.swift; sourceTree = "<group>"; };
 		BA6C15DE2355CC8800871637 /* DataViewModilDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataViewModilDelegate.swift; sourceTree = "<group>"; };
 		BA875A3523595594005BB2BD /* CategorisesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorisesController.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 				BA501F6F237AA0B100881337 /* CategoryBookStatisticsController.swift */,
 				BA501F71237AA0E100881337 /* CategoryReadingStatisticsController.swift */,
 				BA501F73237AA10A00881337 /* KeywordStatisticsController.swift */,
+				BA6AF7C1237E3D4500775290 /* RadioController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -509,6 +512,7 @@
 				BA670AEC2373A4120043A12B /* ActionViewPicker.swift in Sources */,
 				BA655E4D235AC02200767920 /* DateExtensions.swift in Sources */,
 				BA61706C2368188B00902C35 /* BooksJson.swift in Sources */,
+				BA6AF7C2237E3D4500775290 /* RadioController.swift in Sources */,
 				BA5140F523540697006769B0 /* BookFactory.swift in Sources */,
 				BA569169236A83260027C7B3 /* HeaderReusableView.swift in Sources */,
 				BA6714DC2351507A0067D4F1 /* AppDelegate.swift in Sources */,
